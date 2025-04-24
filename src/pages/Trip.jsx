@@ -1,7 +1,7 @@
 export default function Trip() {
     return (
         <>
-            <h1>trip</h1>
+            <h1>Ciao</h1>
         </>
     )
 }
