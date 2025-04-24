@@ -1,54 +1,42 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 
 export default function Header() {
-    return (
-        <>
-            <nav
-                className="navbar navbar-expand-sm navbar-light bg-light"
-            >
-                <div className="container">
-                    <a className="navbar-brand" href="#">Navbar</a>
-                    <button
-                        className="navbar-toggler d-lg-none"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId"
-                        aria-controls="collapsibleNavId"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-                            <li className="nav-item">
-                                <NavLink className="menu_item" to={'/'}>
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className="nav-item mx-4">
-                                <NavLink className="menu_item" to={'/'}>
-                                    Users
-                                </NavLink>
-                            </li>
-                        </ul>
-                        <form className="d-flex my-2 my-lg-0">
-                            <input
-                                className="form-control me-sm-2"
-                                type="text"
-                                placeholder="Search"
-                            />
-                            <button
-                                className="btn btn-outline-success my-2 my-sm-0"
-                                type="submit"
-                            >
-                                Search
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
+  return (
+    <>
+      <nav
+        className="navbar navbar-expand-sm navbar-light bg-light"
+      >
 
-        </>
-    )
+
+        <Link to='/' className="navbar-brand mx-4" href="#">Boo<b>Road</b></Link>
+        <button
+          className="navbar-toggler d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="collapsibleNavId">
+          <ul className="navbar-nav me-auto d-flex gap-2 align-item-center">
+            <li className="nav-item">
+              <NavLink className="menu_item" to={'/'}>
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="menu_item" to={'/'}>
+                Users
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+    </>
+  )
 }

@@ -3,11 +3,15 @@ import Header from "../components/Headers";
 import Footer from "../components/Footer";
 
 export default function DefaultLayout() {
-    return (
-        <>
-            <Header />
-            <Outlet />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+
+      <main>
+        <Outlet />
+      </main>
+
+      <Footer />
+    </>
+  )
 }
