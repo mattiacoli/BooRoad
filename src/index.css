@@ -1,6 +1,11 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
 
+
+body {
+  font-family: 'Outfit Variable', sans-serif;
+}
+
 /* #region header  */
 .menu_item {
   padding-bottom: 40px;
