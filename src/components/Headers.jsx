@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-sm navbar-light bg-light"
+        className="navbar navbar-expand-sm navbar-dark bg-dark rounded-bottom"
       >
         {/* Logo */}
         <Link to='/' className="navbar-brand mx-4">
@@ -28,12 +28,12 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav d-flex gap-4 ">
             <li className="nav-item">
-              <NavLink className="menu_item" to={'/'}>
+              <NavLink className="menu_item text-white" to={'/'}>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="menu_item" to={'/'}>
+              <NavLink className="menu_item text-white" to={'/'}>
                 Elenco Utenti
               </NavLink>
             </li>
