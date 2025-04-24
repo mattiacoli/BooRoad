@@ -21,21 +21,12 @@ export default function Trip() {
 
         <>
 
-            <div className="jumbotron">
+            <div className="jumbotron d-flex justify-content-center align-items-center flex-column">
 
-                <span>{tripName.nome}</span>
-
-                {data.map((trip) => (
-
-                    <div className="card" key={trip.id}>
-                        <img src={trip.immagine} className="card-img-top" alt={trip.nome} />
-                        <div className="card-body">
-                            <h5 className="card-title">{trip.nome}</h5>
-                            <span>Data Inizio:{trip.dataInizio}</span>
-                            <span>Data Fine:{trip.dataFine}</span>
-                        </div>
-                    </div>
-                ))}
+                <img src={tripName.immagine} style={{ width: "50%", marginTop: "10px", marginBottom: "10px" }} />
+                <h3>{tripName.nome}</h3>
+                <p>🗓️ {tripName.dataInizio} - {tripName.dataFine}</p>
+                <p>📍 Location: {tripName.città}</p>
 
             </div>
 
