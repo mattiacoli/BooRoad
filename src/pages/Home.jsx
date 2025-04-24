@@ -11,7 +11,7 @@ export default function Home() {
           <p class="col-md-8 fs-4">
             Scopri la tua prossima avventura con BooRoad. Esplora destinazioni incredibili, pianifica viaggi indimenticabili e crea ricordi che durano una vita.
           </p>
-          <button class="btn btn-primary btn-lg" type="button">
+          <button class="btn  btn-lg" type="button">
             Inizia il tuo viaggio
           </button>
         </div>
@@ -19,7 +19,7 @@ export default function Home() {
 
       <div className="container">
         <Link to='#'>
-          <button className='btn btn-primary my-4'>+ Nuovo Viaggio</button>
+          <button className='btn  my-4'>+ Nuovo Viaggio</button>
         </Link>
 
         <div className="row row-cols-1 row-cols-md-3 g-4">

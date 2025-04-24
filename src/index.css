@@ -1,6 +1,10 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
 
+:root {
+  --br-primary: rgb(228, 115, 23);
+}
+
 
 body {
   font-family: 'Outfit Variable', sans-serif;
@@ -13,12 +17,33 @@ body {
   color: rgb(255, 255, 255);
 
   &:hover {
-    color: rgb(228, 115, 23);
-    border-bottom: 4px solid rgb(228, 115, 23)
+    color: var(--br-primary);
+    border-bottom: 4px solid var(--br-primary)
   }
 }
 
 /* #endregion header  */
+
+
+/* #region main */
+
+main {
+  .btn {
+    background-color: var(--br-primary);
+    color: white;
+
+    &:hover {
+      border-color: var(--br-primary);
+      background-color: transparent;
+      color: var(--br-primary);
+      font-weight: 700;
+
+    }
+  }
+}
+
+
+/* #endregion main */
 
 
 /* #region footer*/
@@ -28,7 +53,7 @@ footer {
     color: rgb(255, 255, 255);
 
     &:hover {
-      color: rgb(228, 115, 23);
+      color: var(--br-primary)
     }
   }
 }
