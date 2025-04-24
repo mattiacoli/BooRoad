@@ -6,9 +6,12 @@ export default function Header() {
       <nav
         className="navbar navbar-expand-sm navbar-light bg-light"
       >
+        {/* Logo */}
+        <Link to='/' className="navbar-brand mx-4">
+          <img src="src/assets/logo.png" style={{ width: '80px' }} alt="" />
+        </Link>
 
-
-        <Link to='/' className="navbar-brand mx-4" href="#">Boo<b>Road</b></Link>
+        {/* collapse button */}
         <button
           className="navbar-toggler d-lg-none"
           type="button"
@@ -20,8 +23,10 @@ export default function Header() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* nav link */}
         <div className="collapse navbar-collapse" id="collapsibleNavId">
-          <ul className="navbar-nav me-auto d-flex gap-2 align-item-center">
+          <ul className="navbar-nav d-flex gap-4 ">
             <li className="nav-item">
               <NavLink className="menu_item" to={'/'}>
                 Home
@@ -29,7 +34,7 @@ export default function Header() {
             </li>
             <li className="nav-item">
               <NavLink className="menu_item" to={'/'}>
-                Users
+                Elenco Utenti
               </NavLink>
             </li>
           </ul>
