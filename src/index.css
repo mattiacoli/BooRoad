@@ -1,2 +1,14 @@
 @import 'bootstrap';
-@import 'bootstrap-icons'
+@import 'bootstrap-icons';
+
+/* #region header  */
+.menu_item {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: rgb(38, 108, 201);
+  }
+}
+
+/* #endregion header  */
