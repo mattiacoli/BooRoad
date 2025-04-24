@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export default function TravelCard({ image, travelName, travelLocation }) {
+export default function TravelCard({ image, travelName, travelLocation, id }) {
 
     const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ export default function TravelCard({ image, travelName, travelLocation }) {
                             <h2>{travelName}</h2>
                             <p>{travelLocation}</p>
                         </div>
-                        <button onClick={() => navigate('/trip')} className="btn btn-primary">Details</button>
+                        <button onClick={() => navigate(`/${id}/trip`)} className="btn btn-primary">Details</button>
                     </div>
                 </div>
             </div>

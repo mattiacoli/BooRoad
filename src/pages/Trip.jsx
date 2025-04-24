@@ -1,12 +1,29 @@
 import data from '../data/data.js'
+import { useParams } from 'react-router-dom'
 
 export default function Trip() {
+
+    const { id } = useParams()
+    console.log(id);
+
+    let tripName;
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == id) {
+            tripName = data[i]
+        }
+    }
+
+    console.log(tripName);
+
 
     return (
 
         <>
 
             <div className="jumbotron">
+
+                <span>{tripName.nome}</span>
 
                 {data.map((trip) => (
 
