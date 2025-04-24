@@ -1,7 +1,9 @@
-import data from '../data/data.js'
+import { useTripContext } from '../contexts/TripContext';
 import { useParams } from 'react-router-dom'
 
 export default function Trip() {
+
+    const { data } = useTripContext()
 
     const { id } = useParams()
     console.log(id);

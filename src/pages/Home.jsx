@@ -1,8 +1,11 @@
-import gite from '../data/data'
+import { useTripContext } from '../contexts/TripContext'
 import TravelCard from '../components/TravelCard'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
+
+    const { data } = useTripContext()
+
     return (
         <>
             <div class="p-5 mb-4 bg-light rounded-3">
@@ -19,7 +22,7 @@ export default function Home() {
 
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-3 g-4">
-                    {gite.map(gita => (
+                    {data.map(gita => (
                         <TravelCard
                             id={gita.id}
                             image={gita.immagine}
