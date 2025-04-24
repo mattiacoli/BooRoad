@@ -73,14 +73,44 @@ export default function AddTrip() {
     <>
       <div className="container">
         <h1>aggiungi un viaggio</h1>
-        <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} className="form-control" action="">
-          <input className="form-control" name="immagine" type="text" value={newTrip.immagine} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
-          <input className="form-control" name="nome" type="text" value={newTrip.nome} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
-          <input className="form-control" name="città" type="text" value={newTrip.città} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
-          <input className="form-control" name="dataInizio" type="date" value={newTrip.dataInizio} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
-          <input className="form-control" name="dataFine" type="date" value={newTrip.dataFine} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
 
-          <button className="btn btn-primary">Aggiungi viaggio</button>
+        <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} className="form-control" action="">
+
+          <label htmlFor="immagine"> Carica immagine</label>
+          <input
+            className="form-control mb-3"
+            name="immagine"
+            type="text"
+            value={newTrip.immagine}
+            onChange={(e) => handleChange(e.target.name, e.target.value)} required />
+
+          <input
+            className="form-control mb-3"
+            name="nome"
+            type="text"
+            value={newTrip.nome}
+            onChange={(e) => handleChange(e.target.name, e.target.value)} required />
+
+          <input className="form-control mb-3"
+            name="città"
+            type="text"
+            value={newTrip.città}
+            onChange={(e) => handleChange(e.target.name, e.target.value)} required />
+
+          <input
+            className="form-control mb-3"
+            name="dataInizio"
+            type="date"
+            value={newTrip.dataInizio}
+            onChange={(e) => handleChange(e.target.name, e.target.value)} required />
+
+          <input className="form-control mb-3"
+            name="dataFine"
+            type="date"
+            value={newTrip.dataFine} onChange={(e) => handleChange(e.target.name, e.target.value)} required />
+
+          <button className="btn mb-3">Aggiungi viaggio</button>
+
           <div className={message.state == 'success' ? 'text-success' : 'text-danger'}>
             <span>{message.state}</span>
             <span>{message.message}</span>
