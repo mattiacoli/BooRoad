@@ -1,7 +1,7 @@
 const gite = [
     {
         id: 1,
-        immagine: "lago_como.jpg",
+        immagine: "/images/lago_como.jpg",
         nome: "Gita al Lago di Como",
         città: "Como",
         dataInizio: "2025-05-10",
@@ -63,7 +63,7 @@ const gite = [
     },
     {
         id: 2,
-        immagine: "firenze_weekend.jpg",
+        immagine: "/images/firenze_weekend.jpg",
         nome: "Weekend a Firenze",
         città: "Firenze",
         dataInizio: "2025-06-01",
@@ -125,7 +125,7 @@ const gite = [
     },
     {
         id: 3,
-        immagine: "gran_sasso.jpg",
+        immagine: "/images/gran_sasso.jpg",
         nome: "Escursione sul Gran Sasso",
         città: "L'Aquila",
         dataInizio: "2025-07-15",
@@ -187,7 +187,7 @@ const gite = [
     },
     {
         id: 4,
-        immagine: "cinque_terre.jpg",
+        immagine: "/images/cinque_terre.jpg",
         nome: "Tour delle Cinque Terre",
         città: "La Spezia",
         dataInizio: "2025-08-20",
@@ -248,3 +248,5 @@ const gite = [
         ]
     }
 ];
+
+export default gite;
