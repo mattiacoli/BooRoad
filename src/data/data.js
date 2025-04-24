@@ -248,3 +248,5 @@ const gite = [
         ]
     }
 ];
+
+export default gite;
