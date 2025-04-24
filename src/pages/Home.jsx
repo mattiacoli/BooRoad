@@ -21,7 +21,7 @@ export default function Home() {
             </div>
 
             <div className="container">
-                <Link to='#'>
+                <Link to='/addtrip'>
                     <button className='btn  my-4'>+ Nuovo Viaggio</button>
                 </Link>
 
