@@ -7,7 +7,7 @@ export default function Header() {
         className="navbar navbar-expand-sm navbar-dark bg-dark rounded-bottom"
       >
         {/* Logo */}
-        <Link to='/' className="navbar-brand mx-4">
+        <Link to='/' className="navbar-brand ms-3">
           <img src="src/assets/logo.png" style={{ width: '80px' }} alt="" />
         </Link>
 
@@ -25,15 +25,15 @@ export default function Header() {
         </button>
 
         {/* nav link */}
-        <div className="collapse navbar-collapse" id="collapsibleNavId">
+        <div className="collapse navbar-collapse d-flex justify-content-center" id="collapsibleNavId">
           <ul className="navbar-nav d-flex gap-4 ">
             <li className="nav-item">
-              <NavLink className="menu_item text-white" to={'/'}>
+              <NavLink className="menu_item" to={'/'}>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="menu_item text-white" to={'/'}>
+              <NavLink className="menu_item" to={'/'}>
                 Elenco Utenti
               </NavLink>
             </li>
