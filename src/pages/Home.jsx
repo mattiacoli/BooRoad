@@ -1,4 +1,5 @@
 import gite from '../data/data'
+import TravelCard from '../components/TravelCard'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
@@ -17,20 +18,13 @@ export default function Home() {
             </div>
 
             <div className="container">
-                <div className="row row-cols-1 row-cols-md-2 g-4">
+                <div className="row row-cols-1 row-cols-md-3 g-4">
                     {gite.map(gita => (
-                        <div className="col" key={gita.id}>
-                            <div className="card h-100 shadow-sm">
-                                <img src={gita.immagine} className="card-img-top" alt={gita.nome} style={{ objectFit: 'cover', height: '200px' }} />
-                                <div className="card-body">
-                                    <h5 className="card-title">{gita.nome}</h5>
-                                    <p className="card-text">Città: {gita.città}</p>
-                                    <p className="card-text">Data Inizio: {new Date(gita.dataInizio).toLocaleDateString()}</p>
-                                    <p className="card-text">Data Fine: {new Date(gita.dataFine).toLocaleDateString()}</p>
-                                    <Link to={`/gite/${gita.id}`} className="btn btn-primary">Dettagli</Link>
-                                </div>
-                            </div>
-                        </div>
+                        <TravelCard
+                            image={gita.immagine}
+                            travelName={gita.nome}
+                            travelLocation={gita.città}
+                        />
                     ))}
                 </div>
             </div>
