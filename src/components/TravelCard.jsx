@@ -11,9 +11,11 @@ export default function TravelCard({ image, travelName, travelLocation }) {
                     <div className="card-header">
                         <img src={image} alt="travel image" />
                     </div>
-                    <div className="card-body">
-                        <h2>{travelName}</h2>
-                        <p>{travelLocation}</p>
+                    <div className="card-body d-flex align-items-center justify-content-between">
+                        <div className="trave_content">
+                            <h2>{travelName}</h2>
+                            <p>{travelLocation}</p>
+                        </div>
                         <button onClick={() => navigate('/travel')} className="btn btn-primary">Details</button>
                     </div>
                 </div>
