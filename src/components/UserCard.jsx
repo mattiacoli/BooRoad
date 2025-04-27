@@ -27,7 +27,19 @@ export default function ParticipantItem({ user }) {
         id={`collapse-${id}`}
         className="accordion-collapse collapse"
         data-bs-parent="#usersAccordion"
-      ></div>
+      >
+        <div className="accordion-body">
+          <p>
+            <strong>Email:</strong> {email}
+          </p>
+          <p>
+            <strong>Telefono:</strong> {telefono}
+          </p>
+          <p>
+            <strong>Codice Fiscale:</strong> {codiceFiscale}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
