@@ -1,4 +1,6 @@
-import React from 'react';
+{
+  /*
+  import React from 'react';
 
 export default function ParticipantItem({ user }) {
     return (
@@ -37,4 +39,6 @@ export default function ParticipantItem({ user }) {
             </div>
         </div>
     );
+}
+*/
 }
