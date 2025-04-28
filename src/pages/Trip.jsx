@@ -2,6 +2,7 @@ import { useTripContext } from "../contexts/TripContext";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import User from "../components/UserCard.jsx";
+import AddUsersForm from "../components/AddUsersForm.jsx";
 
 export default function Trip() {
   const { data } = useTripContext();
@@ -60,6 +61,7 @@ export default function Trip() {
           value={searchUser}
           onChange={handleSearch}
         />
+        <AddUsersForm />
 
         <div className="accordion mt-3" id="usersAccordion">
           {UserList.map((user) => (
