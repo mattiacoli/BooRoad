@@ -22,6 +22,18 @@ body {
   }
 }
 
+.nav-link {
+  color: black;
+
+  &:hover {
+    color: var(--br-primary);
+  }
+
+  &:focus {
+    color: var(--br-primary);
+  }
+}
+
 /* #endregion header  */
 
 

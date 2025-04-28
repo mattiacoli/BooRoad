@@ -9,8 +9,8 @@ export default function DefaultLayout() {
       <Header />
 
       <main style={{ minHeight: '80vh' }}>
-        <div className="row">
-          <div className="col-2 col-sm-1 border">
+        <div className="row bg-light">
+          <div className="col-3 col-sm-2" style={{ width: '120px', boxShadow: '2px 2px 0 var(--br-primary)' }}>
             <Sidebar />
           </div>
 
