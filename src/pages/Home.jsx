@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <div className="container py-5 mb-4 bg-lighter rounded-3">
         <h1 className="display-5 fw-bold">Benvenuto nella Home</h1>
-        <p className="col-md-8 fs-4">Qui puoi gestire i viaggi disponibili</p>
+        <p className="col-md-8 fs-4">Qui puoi visualizzare i viaggi</p>
       </div>
 
       <div className="container">
