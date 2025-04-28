@@ -13,7 +13,7 @@ export default function TripTable() {
                 <hr />
 
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                    <thead className="table table-sm table-striped mb-4">
+                    <thead className="table table-sm table-striped">
                         <tr>
                             <th>Immagine</th>
                             <th>Nome</th>
