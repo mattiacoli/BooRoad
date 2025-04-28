@@ -3,7 +3,7 @@ export default function AddUsersForm({ onSubmit, newUser, emergencyContact, onCh
         <>
             <div className="container my-4">
                 <p class="d-inline-flex gap-1">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Aggiungi Partecipante
                     </button>
                 </p>
