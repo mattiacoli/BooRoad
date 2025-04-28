@@ -22,7 +22,6 @@ export default function AddTrip() {
 
 
   function handleChange(key, value) {
-
     setNewTrip({
       ...newTrip,
       [key]: value
@@ -47,7 +46,11 @@ export default function AddTrip() {
       })
       return setMessage({
         state: 'error',
-        message: 'Trip already exists'
+        message: (
+          <>
+            <i className="bi bi-arrow-bar-right"></i> Trip already exists
+          </>
+        )
       })
     }
 

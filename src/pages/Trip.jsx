@@ -81,13 +81,19 @@ export default function Trip() {
     if (!trip) {
       return setMessage({
         state: 'error',
-        message: 'Trip not found'
+        message: (
+          <>
+            <i className="bi bi-arrow-bar-right"></i> Trip not found
+          </>
+        )
       })
     }
 
+    //create new id
     const newId = trip.partecipanti.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
     newUser.id = newId
 
+    //value cehck
     const checkUser = trip.partecipanti.find(item => item.codiceFiscale == newUser.codiceFiscale)
     console.log(checkUser);
     if (checkUser) {
@@ -106,7 +112,11 @@ export default function Trip() {
       })
       return setMessage({
         state: 'error',
-        message: 'User already exists'
+        message: (
+          <>
+            <i className="bi bi-arrow-bar-right"></i> User already exists
+          </>
+        )
       })
     }
 
@@ -115,15 +125,26 @@ export default function Trip() {
     if (!emergencyContact.nome || !emergencyContact.telefono || !emergencyContact.relazione) {
       return setMessage({
         state: 'error',
-        message: 'Please add an emergency contact for this user'
+        message: (
+          <>
+            <i className="bi bi-arrow-bar-right"></i> Please add an emergency contact for this user
+          </>
+        )
+
+
       })
     } else if (emergencyContact.telefono == newUser.telefono) {
       return setMessage({
         state: 'error',
-        message: 'The emergency contact needs to be different from the user'
+        message: (
+          <>
+            <i className="bi bi-arrow-bar-right"></i> The emergency contact needs to be different from the user
+          </>
+        )
       })
     }
 
+    //create user to push with emergency contact
     const userToPush = {
       ...newUser,
       contattoEmergenza: emergencyContact
@@ -142,6 +163,7 @@ export default function Trip() {
     setData(updatedTrips)
     console.log(data);
 
+    //empty the input values after push
     setNewUser({
       id: null,
       nome: "",
@@ -175,6 +197,16 @@ export default function Trip() {
         <p>📍 Location: {tripName.città}</p>
       </div>
 
+      <AddUsersForm
+        onSubmit={handleSubmit}
+        newUser={newUser}
+        emergencyContact={emergencyContact}
+        onChangeUser={handleChangeUser}
+        onChangeEmergency={handleChangeEmergency}
+        message={message}
+
+      />
+
       <div className="container">
         <h4>Ricerca Partecipanti</h4>
 
@@ -185,15 +217,7 @@ export default function Trip() {
           value={searchUser}
           onChange={handleSearch}
         />
-        <AddUsersForm
-          onSubmit={handleSubmit}
-          newUser={newUser}
-          emergencyContact={emergencyContact}
-          onChangeUser={handleChangeUser}
-          onChangeEmergency={handleChangeEmergency}
-          message={message}
 
-        />
 
         <div className="accordion mt-3" id="usersAccordion">
           {UserList.map((user) => (
