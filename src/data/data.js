@@ -101,6 +101,7 @@ const gite = [
             { id: 42, nome: "Alessandra", cognome: "Bianchi", email: "alessandra.bianchi@example.com", telefono: "3557890123", codiceFiscale: "BNCLSN99B11H501C", contattoEmergenza: { nome: "Giovanni Bianchi", telefono: "3550021223", relazione: "Padre" } }
         ]
     }
+
 ];
 
 export default gite;
