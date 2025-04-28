@@ -59,6 +59,7 @@ export default function UsersContacts() {
                 <th scope="col">Contatto di Emergenza</th>
                 <th scope="col">Relazione</th>
                 <th scope="col">Telefono Emergenza</th>
+                <th scope="col">ACTIONS</th>
               </tr>
             </thead>
             <tbody>
