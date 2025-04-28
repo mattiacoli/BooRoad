@@ -195,6 +195,7 @@ export default function Trip() {
           className="img-fluid rounded-3 object-fit-cover object-fit-center"
           src={tripName.immagine}
           style={{ width: "85%", height: "550px", marginTop: "10px", marginBottom: "10px" }}
+          onError={(e) => { e.target.onerror = null; e.target.src = "/images/placeholder.jpg"; }}
         />
         <p>
           🗓️ {tripName.dataInizio} - {tripName.dataFine}
