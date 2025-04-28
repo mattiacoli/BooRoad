@@ -8,15 +8,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="p-5 mb-4 bg-light rounded-3">
+      <div className="p-5 mb-4 bg-lighter rounded-3">
         <div className="container-fluid py-5">
-          <h1 className="display-5 fw-bold">Benvenuto su BooRoad</h1>
-          <p className="col-md-8 fs-4">
-            Scopri la tua prossima avventura con BooRoad. Esplora destinazioni incredibili, pianifica viaggi indimenticabili e crea ricordi che durano una vita.
-          </p>
-          <button className="btn  btn-lg" type="button">
-            Inizia il tuo viaggio
-          </button>
+          <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
+
         </div>
       </div>
 
