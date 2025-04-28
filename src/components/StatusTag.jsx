@@ -23,7 +23,7 @@ export default function StatusTag({ start, end }) {
 
   return (
 
-    <div className={`badge text-white ${status} `}>
+    <div className={`badge text-white ${status} p-2`}>
 
       {messageStatus}
 
