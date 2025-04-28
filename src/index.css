@@ -3,6 +3,8 @@
 
 :root {
   --br-primary: rgb(228, 115, 23);
+  --br-warning: rgb(255, 208, 0);
+  --br-danger: rgb(255, 27, 20);
 }
 
 
@@ -18,7 +20,7 @@ body {
 
   &:hover {
     color: var(--br-primary);
-    border-bottom: 4px solid var(--br-primary)
+    border-bottom: 4px solid var(--br-primary);
   }
 }
 
@@ -51,6 +53,29 @@ main {
       font-weight: 700;
 
     }
+
+
+  }
+
+  .danger {
+    background-color: var(--br-danger);
+
+    &:hover {
+      border-color: var(--br-primary);
+      background-color: transparent;
+      color: var(--br-primary);
+    }
+  }
+
+  .warning {
+    background-color: var(--br-warning);
+    color: black;
+
+    &:hover {
+      border-color: var(--br-primary);
+      background-color: transparent;
+      color: var(--br-primary);
+    }
   }
 
   .badge {
@@ -77,6 +102,24 @@ main {
   ;
 
 }
+
+.user_info {
+  width: 100%;
+
+  .edit_user_label {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .edit_user_input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+  }
+}
+
+
 
 
 /* #endregion main */
