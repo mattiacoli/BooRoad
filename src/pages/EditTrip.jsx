@@ -149,8 +149,9 @@ export default function EditTrip() {
                             currentCompanions.map(item => (
                                 <>
                                     <ChangeCompanionsUi
+                                        id={id}
                                         key={item.id}
-                                        data={item}
+                                        item={item}
                                     />
                                 </>
                             ))
