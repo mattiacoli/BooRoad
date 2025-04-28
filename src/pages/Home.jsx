@@ -19,11 +19,6 @@ export default function Home() {
       </div>
 
       <div className="container">
-        {/* Add new trip */}
-        <Link to="/addtrip">
-          <button className="btn my-4">+ Nuovo Viaggio</button>
-        </Link>
-
         {/* Travel cards */}
         <div className="row row-cols-1 row-cols-md-3 g-4 pb-5">
           {filteredTrips.map((gita) => (
