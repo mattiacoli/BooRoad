@@ -17,7 +17,7 @@ export default function TravelCard({ image, travelName, travelLocation, id, part
             <div className="trave_content">
               <h2>{travelName}</h2>
               <p>{travelLocation}</p>
-              <p>n. partecipanti:  {partecipanti.length} </p>
+              <p>N° Partecipanti:  {partecipanti.length} </p>
               <StatusTag start={dataInizio} end={dataFine} />
             </div>
             <button onClick={() => navigate(`/${id}/trip`)} className="btn">Details</button>
