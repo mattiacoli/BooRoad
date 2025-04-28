@@ -11,13 +11,21 @@ export default function Trip() {
   const { id } = useParams();
   console.log(id);
 
-  let tripName;
+  console.log(data);
 
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].id == id) {
-      tripName = data[i];
-    }
-  }
+
+  const [tripName, setTripName] = useState(data.find(trip => trip.id == id))
+
+  // let tripName;
+
+  // for (let i = 0; i < data.length; i++) {
+  //   if (data[i].id == id) {
+  //     tripName = data[i];
+  //   }
+  // }
+
+  console.log(tripName);
+
 
   const [searchUser, setSearchUser] = useState("");
   const [UserList, setUserList] = useState([]);

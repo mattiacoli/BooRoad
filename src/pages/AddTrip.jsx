@@ -15,7 +15,8 @@ export default function AddTrip() {
     città: "",
     dataInizio: "",
     dataFine: "",
-    partecipanti: []
+    partecipanti: [],
+    accompagnatori: []
   })
 
   const [message, setMessage] = useState('')
