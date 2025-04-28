@@ -74,8 +74,8 @@ export default function UsersContacts() {
                   <td>{user.contattoEmergenza.telefono}</td>
                   <td>
                     <div className="button_container d-flex gap-2">
-                      <button onClick={() => navigate(`/${user.id}/edit`)} className="btn warning">Edit</button>
-                      <button onClick={() => deleteUser(user.id)} className="btn danger">Delete</button>
+                      <button onClick={() => navigate(`/${user.id}/edit`)} className=" btn btn-actions btn-warning">Edit</button>
+                      <button onClick={() => deleteUser(user.id)} className="btn btn-actions btn-danger">Delete</button>
                     </div>
                   </td>
                 </tr>

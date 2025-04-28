@@ -48,7 +48,7 @@ body {
 /* #region main */
 
 main {
-  .btn {
+  .btn:not(.btn-actions) {
     background-color: var(--br-primary);
     color: white;
 
