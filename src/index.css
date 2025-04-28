@@ -40,6 +40,30 @@ main {
 
     }
   }
+
+  .badge {
+    &.scheduled {
+      background-color: cornflowerblue;
+    }
+
+    &.inProgress {
+      background-color: limegreen;
+    }
+
+    &.finished {
+      background-color: rgb(231, 49, 49);
+    }
+  }
+
+  table {
+    th {
+      line-height: 1rem;
+      vertical-align: 1rem;
+    }
+  }
+
+  ;
+
 }
 
 

@@ -190,15 +190,17 @@ export default function Trip() {
   return (
     <>
       <div className="jumbotron d-flex justify-content-center align-items-center flex-column">
+        <h3 className="mt-3">{tripName.nome}</h3>
         <img
+          className="img-fluid rounded-3 object-fit-cover object-fit-center"
           src={tripName.immagine}
-          style={{ width: "50%", marginTop: "10px", marginBottom: "10px" }}
+          style={{ width: "85%", height: "550px", marginTop: "10px", marginBottom: "10px" }}
         />
-        <h3>{tripName.nome}</h3>
         <p>
           🗓️ {tripName.dataInizio} - {tripName.dataFine}
         </p>
         <p>📍 Location: {tripName.città}</p>
+        <p>👤 Partecipanti: {tripName.partecipanti.length}</p>
       </div>
 
       <AddUsersForm

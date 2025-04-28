@@ -1,12 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import DefaultLayout from "./layouts/DefaultLayout"
-import Home from "./pages/Home"
-import Trip from './pages/Trip'
-import AddTrip from "./pages/AddTrip"
-import { TripProvider } from "./contexts/TripContext"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from "./layouts/DefaultLayout";
+import Home from "./pages/Home";
+import UsersContacts from "./pages/UsersContacts"
+import Trip from "./pages/Trip";
+import AddTrip from "./pages/AddTrip";
+import NotFound from "./pages/404";
+import { TripProvider } from "./contexts/TripContext";
 
 function App() {
-
   return (
     <>
       <TripProvider>
@@ -14,14 +15,16 @@ function App() {
           <Routes>
             <Route Component={DefaultLayout}>
               <Route path="/" Component={Home} />
+              <Route path="/elenco_utenti" Component={UsersContacts} />
               <Route path="/:id/trip" Component={Trip} />
               <Route path="/addtrip" Component={AddTrip} />
+              <Route path="*" Component={NotFound} />
             </Route>
           </Routes>
         </BrowserRouter>
       </TripProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
