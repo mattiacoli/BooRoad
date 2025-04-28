@@ -16,14 +16,6 @@ export default function Trip() {
 
   const [tripName, setTripName] = useState(data.find(trip => trip.id == id))
 
-  // let tripName;
-
-  // for (let i = 0; i < data.length; i++) {
-  //   if (data[i].id == id) {
-  //     tripName = data[i];
-  //   }
-  // }
-
   console.log(tripName);
 
 
