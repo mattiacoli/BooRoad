@@ -19,7 +19,7 @@ function App() {
               <Route path="/elenco_utenti" Component={UsersContacts} />
               <Route path="/:id/trip" Component={Trip} />
               <Route path="/addtrip" Component={AddTrip} />
-              <Route path="/edit" Component={EditUser} />
+              <Route path="/:id/edit" Component={EditUser} />
               <Route path="*" Component={NotFound} />
             </Route>
           </Routes>

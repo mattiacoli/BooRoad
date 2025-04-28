@@ -1,7 +1,10 @@
 import { useTripContext } from "../contexts/TripContext"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function UsersContacts() {
+
+  const navigate = useNavigate()
 
   const { data, deleteUser } = useTripContext()
 
@@ -59,8 +62,8 @@ export default function UsersContacts() {
                     <td>{user.contattoEmergenza.relazione}</td>
                     <td>{user.contattoEmergenza.telefono}</td>
                     <td>
-                      <div className="button_container d-flex gap-2 ">
-                        <button className="btn warning">Edit</button>
+                      <div className="button_container d-flex gap-2">
+                        <button onClick={() => navigate(`/${user.id}/edit`)} className="btn warning">Edit</button>
                         <button onClick={() => deleteUser(user.id)} className="btn danger">Delete</button>
                       </div>
                     </td>
