@@ -48,7 +48,7 @@ export default function UsersContacts() {
               })
               .map((user) => {
                 return (
-                  <tr key={user.id}>
+                  <tr key={user.codiceFiscale}>
                     <td>{user.cognome}</td>
                     <td scope="row">{user.nome}</td>
                     <td>{user.email}</td>
