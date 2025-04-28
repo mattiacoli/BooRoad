@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import User from "../components/UserCard.jsx";
 import AddUsersForm from "../components/AddUsersForm.jsx";
+import Companions from "../components/Companions.jsx";
 
 export default function Trip() {
   const { data, setData } = useTripContext();
@@ -202,6 +203,22 @@ export default function Trip() {
         </p>
         <p>📍 Location: {tripName.città}</p>
         <p>👤 Partecipanti: {tripName.partecipanti.length}</p>
+        <p>👤 accompagnatori: </p>
+        <div className="accompagnatori">
+          <ul className="list-unstyled">
+            {tripName.accompagnatori.map(item => (
+              <>
+                <Companions
+                  id={item.id}
+                  nome={item.nome}
+                  cognome={item.cognome}
+                  email={item.email}
+                  telefono={item.telefono}
+                />
+              </>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <AddUsersForm
