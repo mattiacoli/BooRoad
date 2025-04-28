@@ -8,7 +8,7 @@ export default function SearchBar() {
             <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Cerca viaggi"
+                placeholder="Cerca..."
                 aria-label="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
