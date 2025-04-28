@@ -55,6 +55,15 @@ main {
     }
   }
 
+  table {
+    th {
+      line-height: 1rem;
+      vertical-align: 1rem;
+    }
+  }
+
+  ;
+
 }
 
 
