@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 
 // Component to display a participant's information
 export default function ParticipantItem({ user }) {
@@ -12,6 +13,10 @@ export default function ParticipantItem({ user }) {
     codiceFiscale,
     contattoEmergenza,
   } = user;
+
+  useEffect(() => {
+    console.log('re-render');
+  }, [user])
 
   return (
     <div className="accordion-item">

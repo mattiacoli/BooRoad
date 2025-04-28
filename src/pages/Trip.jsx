@@ -1,6 +1,6 @@
 import { useTripContext } from "../contexts/TripContext";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import User from "../components/UserCard.jsx";
 import AddUsersForm from "../components/AddUsersForm.jsx";
 
@@ -19,7 +19,11 @@ export default function Trip() {
   }
 
   const [searchUser, setSearchUser] = useState("");
-  const [UserList, setUserList] = useState(tripName.partecipanti);
+  const [UserList, setUserList] = useState([]);
+
+  useEffect(() => {
+    setUserList(tripName.partecipanti)
+  }, [data])
 
   const handleSearch = (e) => {
     const searchValue = e.target.value.toLowerCase();
