@@ -1,61 +1,20 @@
-import { useState, useEffect } from "react"
-import { useTripContext } from "../../contexts/TripContext"
+import { useTripContext } from "../../contexts/TripContext";
 
-export default function ChangeCompanionsUi({ item, id }) {
+export default function CompanionEditCardUi({ onchange, onsubmit, companion, message, tripId }) {
 
-    const { data, setData } = useTripContext()
-
-    const [companion, setCompanion] = useState(item)
-    const [message, setmessage] = useState({
-        state: '',
-        message: ''
-    })
-
-    function handleChangeCompanions(key, value) {
-        setCompanion({
-            ...companion,
-            [key]: value
-        })
-    }
-
-    function handleSubmit() {
-
-        //rimappare l'array generale con i nuovi dati
-        const currentTrip = data.find(trip => trip.id == id)
-        const updatedCompanions = currentTrip.accompagnatori.map(item => item.id == companion.id ? companion : item)
-
-        const updatedTrip = {
-            ...currentTrip,
-            accompagnatori: updatedCompanions
-        }
-
-        const updatedData = data.map(trip => trip.id == updatedTrip.id ? updatedTrip : trip)
-        //settare l'array con il setter
-
-        setData(updatedData)
-
-        setmessage({
-            state: 'success',
-            message: 'Companion updated correctly'
-        })
-
-    }
-
-    useEffect(() => {
-        console.log(data);
-    }, [data])
+    const { deleteCompanion } = useTripContext()
 
     return (
         <>
             <div className="col">
-                <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} action="">
+                <form onSubmit={(e) => { e.preventDefault(); onsubmit() }} action="">
                     <div className="card">
                         <div className="card-header">
                             <h3>Info accompagnatore:</h3>
                             <div className="card-body">
                                 <label htmlFor="" className="edit_label">Nome:</label>
                                 <input
-                                    onChange={(e) => handleChangeCompanions(e.target.name, e.target.value)}
+                                    onChange={(e) => onchange(e.target.name, e.target.value)}
                                     value={companion.nome}
                                     name="nome"
                                     className="edit_input"
@@ -65,7 +24,7 @@ export default function ChangeCompanionsUi({ item, id }) {
 
                                 <label htmlFor="" className="edit_label">Cognome:</label>
                                 <input
-                                    onChange={(e) => handleChangeCompanions(e.target.name, e.target.value)}
+                                    onChange={(e) => onchange(e.target.name, e.target.value)}
                                     value={companion.cognome}
                                     name="cognome"
                                     className="edit_input"
@@ -75,7 +34,7 @@ export default function ChangeCompanionsUi({ item, id }) {
 
                                 <label htmlFor="" className="edit_label">Email:</label>
                                 <input
-                                    onChange={(e) => handleChangeCompanions(e.target.name, e.target.value)}
+                                    onChange={(e) => onchange(e.target.name, e.target.value)}
                                     value={companion.email}
                                     name="email"
                                     className="edit_input"
@@ -85,7 +44,7 @@ export default function ChangeCompanionsUi({ item, id }) {
 
                                 <label htmlFor="" className="edit_label">Telefono:</label>
                                 <input
-                                    onChange={(e) => handleChangeCompanions(e.target.name, e.target.value)}
+                                    onChange={(e) => onchange(e.target.name, e.target.value)}
                                     value={companion.telefono}
                                     name="telefono"
                                     className="edit_input"
@@ -106,7 +65,8 @@ export default function ChangeCompanionsUi({ item, id }) {
                                 }
                             </div>
                             <div className="card-footer text-center">
-                                <button type="submit" className="btn my-4">Salva Modifiche</button>
+                                <button type="submit" className="btn mx-4">Salva Modifiche</button>
+                                <button type="button" onClick={() => deleteCompanion(companion.id, tripId)} className="btn btn-actions btn-danger my-4">Elimina Accompagnatore</button>
                             </div>
                         </div>
                     </div>

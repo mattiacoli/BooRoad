@@ -31,15 +31,37 @@ function TripProvider({ children }) {
 
     function deleteTrip(id) {
         console.log('delete');
-        let deletedTrip = {};
 
         const updatedData = data.filter(item => item.id !== id)
         setData(updatedData)
     }
 
+    function deleteCompanion(companionId, tripId) {
+        console.log('delete');
+
+        console.log(companionId, Number(tripId));
+
+
+        const currentTrip = data.find(trip => trip.id == Number(tripId))
+
+        const updatedCompanion = currentTrip.accompagnatori.filter(item => item.id !== companionId)
+
+        const updatedTrip = {
+            ...currentTrip,
+            accompagnatori: updatedCompanion
+        }
+
+        const updatedData = data.map(item => item.id == updatedTrip.id ? updatedTrip : item)
+        console.log(updatedData);
+
+        setData(updatedData)
+        console.log('submit');
+
+    }
+
     return (
 
-        <TripContext.Provider value={{ data, setData, deleteTrip, deleteUser, searchQuery, setSearchQuery }}>
+        <TripContext.Provider value={{ data, setData, deleteCompanion, deleteTrip, deleteUser, searchQuery, setSearchQuery }}>
             {children}
         </TripContext.Provider>
     );

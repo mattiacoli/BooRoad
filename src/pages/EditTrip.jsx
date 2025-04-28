@@ -3,7 +3,7 @@ import { useTripContext } from "../contexts/TripContext"
 import { useState } from "react"
 import UserListUi from "../components/dumb/UserList.ui"
 import { useNavigate } from "react-router-dom"
-import ChangeCompanionsUi from "../components/dumb/ChangeCompanions.ui"
+import ChangeCompanions from "../components/smart/ChangeCompanions"
 
 export default function EditTrip() {
 
@@ -148,7 +148,7 @@ export default function EditTrip() {
                         {
                             currentCompanions.map(item => (
                                 <>
-                                    <ChangeCompanionsUi
+                                    <ChangeCompanions
                                         id={id}
                                         key={item.id}
                                         item={item}
