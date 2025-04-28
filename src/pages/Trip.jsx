@@ -48,6 +48,7 @@ export default function Trip() {
           🗓️ {tripName.dataInizio} - {tripName.dataFine}
         </p>
         <p>📍 Location: {tripName.città}</p>
+        <p>👤 Partecipanti: {tripName.partecipanti.length}</p>
       </div>
 
       <div className="container">
