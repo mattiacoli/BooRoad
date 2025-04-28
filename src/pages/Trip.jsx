@@ -207,7 +207,7 @@ export default function Trip() {
         <div className="container w-100">
           {tripName.accompagnatori.map(item => (
             <>
-              <div className="accordion" id="compAccordion">
+              <div key={`companion-${item.id}`} className="accordion" id="compAccordion">
                 <Companions
                   id={`comp-${item.id}`}
                   nome={item.nome}
