@@ -1,12 +1,25 @@
-# React + Vite
+# BooRoad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BooRoad è un'applicazione web per la gestione e la visualizzazione di viaggi. Gli utenti possono esplorare i viaggi disponibili, visualizzare i dettagli di ciascun viaggio e aggiungere nuovi viaggi.
 
-Currently, two official plugins are available:
+## Funzionalità principali
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home Page**: Visualizza una lista di viaggi con dettagli come nome, località, numero di partecipanti e stato (attivo/inattivo).
+- **Ricerca**: Barra di ricerca per filtrare i viaggi in base al nome o alla città.
+- **Dettagli del Viaggio**: Ogni viaggio ha una pagina dedicata con informazioni dettagliate.
+- **Aggiunta di Viaggi**: Possibilità di aggiungere nuovi viaggi tramite un modulo.
+- **Navigazione Intuitiva**: Navbar con collegamenti rapidi e un logo personalizzato.
 
-## Expanding the ESLint configuration
+## Tecnologie utilizzate
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React.js
+- **Routing**: React Router
+- **Stile**: Bootstrap 5 e Bootstrap Icons
+- **Gestione Stato**: Context API per la condivisione dei dati tra i componenti
+
+## Struttura del progetto
+
+- **`src/components`**: Contiene i componenti riutilizzabili come `TravelCard`, `Header`, `SearchBar`, ecc.
+- **`src/pages`**: Contiene le pagine principali come `Home`.
+- **`src/contexts`**: Contiene il contesto per la gestione dello stato globale (`TripContext`).
+- **`src/assets`**: Contiene le risorse statiche come immagini e il logo.
