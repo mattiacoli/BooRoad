@@ -8,11 +8,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="p-5 mb-4 bg-lighter rounded-3">
-        <div className="container-fluid py-5">
-          <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
-
-        </div>
+      <div className="container py-5 mb-4 bg-lighter rounded-3">
+        <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
+        <p className="col-md-8 fs-4">Qui puoi gestire i tuoi viaggi e i partecipanti.</p>
       </div>
 
       <div className="container">
@@ -24,7 +22,7 @@ export default function Home() {
 
 
         {/* travel card */}
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 pb-5">
           {data.map(gita => (
             <TravelCard
               key={gita.id}
