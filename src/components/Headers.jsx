@@ -24,21 +24,7 @@ export default function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* nav link */}
-        <div className="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
-          <ul className="navbar-nav d-flex gap-4">
-            <li className="nav-item">
-              <NavLink className="menu_item" to={'/'}>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="menu_item" to={'/elenco_utenti'}>
-                Elenco Utenti
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        {/* Mettere SerachBar */}
 
       </nav>
 

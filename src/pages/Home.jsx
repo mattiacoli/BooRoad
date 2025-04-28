@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <div className="container py-5 mb-4 bg-lighter rounded-3">
-        <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
-        <p className="col-md-8 fs-4">Qui puoi gestire i tuoi viaggi e i partecipanti.</p>
+        <h1 className="display-5 fw-bold">Benvenuto nella Home</h1>
+        <p className="col-md-8 fs-4">Qui puoi gestire i viaggi disponibili</p>
       </div>
 
       <div className="container">
