@@ -204,20 +204,20 @@ export default function Trip() {
         <p>📍 Location: {tripName.città}</p>
         <p>👤 Partecipanti: {tripName.partecipanti.length}</p>
         <p>👤 accompagnatori: </p>
-        <div className="accompagnatori">
-          <ul className="list-unstyled">
-            {tripName.accompagnatori.map(item => (
-              <>
+        <div className="container w-100">
+          {tripName.accompagnatori.map(item => (
+            <>
+              <div className="accordion" id="compAccordion">
                 <Companions
-                  id={item.id}
+                  id={`comp-${item.id}`}
                   nome={item.nome}
                   cognome={item.cognome}
                   email={item.email}
                   telefono={item.telefono}
                 />
-              </>
-            ))}
-          </ul>
+              </div>
+            </>
+          ))}
         </div>
       </div>
 
