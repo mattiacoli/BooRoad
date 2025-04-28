@@ -10,8 +10,12 @@ export default function Dashboard() {
       </div>
 
 
+      {/* add trip table */}
+
 
       <UsersContacts />
+
+
 
 
     </>
