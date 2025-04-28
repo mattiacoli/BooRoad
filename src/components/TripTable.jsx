@@ -1,8 +1,11 @@
 import { useTripContext } from "../contexts/TripContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function TripTable() {
 
-  const { data, searchQuery } = useTripContext()
+  const navigate = useNavigate()
+
+  const { data, searchQuery, deleteTrip } = useTripContext()
 
   // Filtra i viaggi in base alla query di ricerca
   const filteredTrips = data.filter(gita =>
@@ -48,8 +51,8 @@ export default function TripTable() {
                       <td className="text-center">{trip.partecipanti.length}</td>
                       <td>
                         <div className="button_container d-flex gap-2 justify-content-center bg-transparent">
-                          <button onClick={() => navigate(`/${trip.id}/edit`)} className="btn btn-actions btn-warning">Edit</button>
-                          <button onClick={() => deleteUser(user.id)} className="btn btn-actions btn-danger">Delete</button>
+                          <button onClick={() => navigate(`/${trip.id}/edit-trip`)} className="btn btn-actions btn-warning">Edit</button>
+                          <button onClick={() => deleteTrip(trip.id)} className="btn btn-actions btn-danger">Delete</button>
                         </div>
                       </td>
                     </tr>

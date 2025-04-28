@@ -93,15 +93,15 @@ main {
 
 }
 
-.user_info {
+.edit_info {
   width: 100%;
 
-  .edit_user_label {
+  .edit_label {
     display: block;
     margin-top: 1rem;
   }
 
-  .edit_user_input {
+  .edit_input {
     width: 100%;
     padding: 0.6rem;
     border: 1px solid lightgrey;
