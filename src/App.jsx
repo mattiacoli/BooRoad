@@ -6,6 +6,7 @@ import Trip from "./pages/Trip";
 import AddTrip from "./pages/AddTrip";
 import NotFound from "./pages/404";
 import { TripProvider } from "./contexts/TripContext";
+import TripTable from "./components/TripTable";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/:id/trip" Component={Trip} />
               <Route path="/addtrip" Component={AddTrip} />
               <Route path="*" Component={NotFound} />
+              <Route path="/triptable" Component={TripTable} />
             </Route>
           </Routes>
         </BrowserRouter>
