@@ -193,7 +193,9 @@ export default function Trip() {
         <h3 className="mt-3">{tripName.nome}</h3>
         <img
           className="img-fluid rounded-3 object-fit-cover object-fit-center"
-          src={tripName.immagine}
+          src={
+            tripName.immagine ? tripName.immagine : "/images/placeholder.jpg"
+          }
           style={{ width: "85%", height: "550px", marginTop: "10px", marginBottom: "10px" }}
         />
         <p>
