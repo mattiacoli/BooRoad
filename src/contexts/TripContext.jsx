@@ -28,9 +28,18 @@ function TripProvider({ children }) {
         setData(updatedData)
     }
 
+
+    function deleteTrip(id) {
+        console.log('delete');
+        let deletedTrip = {};
+
+        const updatedData = data.filter(item => item.id !== id)
+        setData(updatedData)
+    }
+
     return (
 
-        <TripContext.Provider value={{ data, setData, deleteUser, searchQuery, setSearchQuery }}>
+        <TripContext.Provider value={{ data, setData, deleteTrip, deleteUser, searchQuery, setSearchQuery }}>
             {children}
         </TripContext.Provider>
     );

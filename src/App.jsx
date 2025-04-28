@@ -7,6 +7,7 @@ import NotFound from "./pages/404";
 import { TripProvider } from "./contexts/TripContext";
 import EditUser from "./pages/EditUser";
 import Dashboard from "./pages/Dashboard";
+import EditTrip from "./pages/EditTrip";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Route path="/:id/trip" Component={Trip} />
               <Route path="/addtrip" Component={AddTrip} />
               <Route path="/:id/edit" Component={EditUser} />
+              <Route path="/:id/edit-trip" Component={EditTrip} />
               <Route path="*" Component={NotFound} />
             </Route>
           </Routes>
