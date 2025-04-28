@@ -14,10 +14,6 @@ export default function ParticipantItem({ user }) {
     contattoEmergenza,
   } = user;
 
-  useEffect(() => {
-    console.log('re-render');
-  }, [user])
-
   return (
     <div className="accordion-item">
       {/* Accordion header displaying the participant's name */}
