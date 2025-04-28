@@ -1,9 +1,12 @@
 import { useTripContext } from "../contexts/TripContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function UsersContacts() {
-  const { data, searchQuery } = useTripContext();
+  const { data, searchQuery, deleteUser } = useTripContext();
   const [sortDirection, setSortDirection] = useState("asc");
+
+  const navigate = useNavigate()
 
   function handleSort() {
     setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
@@ -69,6 +72,12 @@ export default function UsersContacts() {
                   <td>{user.contattoEmergenza.nome}</td>
                   <td>{user.contattoEmergenza.relazione}</td>
                   <td>{user.contattoEmergenza.telefono}</td>
+                  <td>
+                    <div className="button_container d-flex gap-2">
+                      <button onClick={() => navigate(`/${user.id}/edit`)} className="btn warning">Edit</button>
+                      <button onClick={() => deleteUser(user.id)} className="btn danger">Delete</button>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
