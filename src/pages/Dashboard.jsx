@@ -1,4 +1,5 @@
 import UsersContacts from "../components/UsersContacts"
+import TripTable from "../components/TripTable";
 
 
 export default function Dashboard() {
@@ -11,6 +12,7 @@ export default function Dashboard() {
 
 
       {/* add trip table */}
+      <TripTable />
 
 
       <UsersContacts />
