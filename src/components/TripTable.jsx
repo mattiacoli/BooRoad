@@ -2,7 +2,13 @@ import { useTripContext } from "../contexts/TripContext.jsx";
 
 export default function TripTable() {
 
-    const { data } = useTripContext()
+    const { data, searchQuery } = useTripContext()
+
+    // Filtra i viaggi in base alla query di ricerca
+    const filteredTrips = data.filter(gita =>
+        gita.nome.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        gita.città.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
 
@@ -25,7 +31,7 @@ export default function TripTable() {
                     </thead>
                     <tbody className="table table-sm table-striped">
                         {
-                            data.map((trip) => {
+                            filteredTrips.map((trip) => {
                                 return (
                                     <tr key={trip.id}>
                                         <td>
