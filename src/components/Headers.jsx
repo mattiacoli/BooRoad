@@ -33,7 +33,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="menu_item" to={'/'}>
+              <NavLink className="menu_item" to={'/elenco_utenti'}>
                 Elenco Utenti
               </NavLink>
             </li>
