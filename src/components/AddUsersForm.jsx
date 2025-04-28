@@ -1,4 +1,4 @@
-export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
+export default function AddUsersForm({ onSubmit, newUser, emergencyContact, onChangeUser, onChangeEmergency, message }) {
     return (
         <>
             <div className="container">
@@ -14,7 +14,7 @@ export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
                         name="nome"
                         type="text"
                         value={newUser.nome}
-                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+                        onChange={(e) => onChangeUser(e.target.name, e.target.value)} required />
 
 
                     <label htmlFor="citta mb-2">Cognome Partecipante</label>
@@ -22,7 +22,7 @@ export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
                         name="cognome"
                         type="text"
                         value={newUser.cognome}
-                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+                        onChange={(e) => onChangeUser(e.target.name, e.target.value)} required />
 
                     <label htmlFor="immagine mb-2"> Email Partecipante</label>
                     <input
@@ -30,7 +30,7 @@ export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
                         name="email"
                         type="email"
                         value={newUser.email}
-                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+                        onChange={(e) => onChangeUser(e.target.name, e.target.value)} required />
 
                     <label htmlFor="immagine mb-2"> Telefono Partecipante</label>
                     <input
@@ -38,7 +38,7 @@ export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
                         name="telefono"
                         type="text"
                         value={newUser.telefono}
-                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+                        onChange={(e) => onChangeUser(e.target.name, e.target.value)} required />
 
                     <label htmlFor="immagine mb-2"> Codice fiscale Partecipante</label>
                     <input
@@ -46,51 +46,52 @@ export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
                         name="codiceFiscale"
                         type="text"
                         value={newUser.codiceFiscale}
-                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+                        onChange={(e) => onChangeUser(e.target.name, e.target.value)} required />
 
-                    <h4>Contatto di emergenza</h4>
 
-                    <div className="row row-cols-3">
-                        <div className="col">
-                            <label htmlFor="dataInizio">Nome</label>
-                            <input
-                                className="form-control mb-3"
-                                name="nome"
-                                type="text"
-                                value={newUser.contattoEmergenza.nome}
-                                onChange={(e) => onChange(e.target.name, e.target.value)} />
-                        </div>
+                    <form action="">
+                        <h4>Contatto di emergenza</h4>
 
-                        <div className="col">
-                            <label htmlFor="dataInizio">Telefono</label>
-                            <input
-                                className="form-control mb-3"
-                                name="telefono"
-                                type="text"
-                                value={newUser.contattoEmergenza.telefono}
-                                onChange={(e) => onChange(e.target.name, e.target.value)} />
-                        </div>
-
-                        <div className="col">
+                        <div className="row row-cols-3">
                             <div className="col">
-                                <label htmlFor="dataInizio">Relazione</label>
+                                <label htmlFor="dataInizio">Nome</label>
                                 <input
                                     className="form-control mb-3"
-                                    name="relazione"
+                                    name="nome"
                                     type="text"
-                                    value={newUser.contattoEmergenza.relazione}
-                                    onChange={(e) => onChange(e.target.name, e.target.value)} />
+                                    value={emergencyContact.nome}
+                                    onChange={(e) => onChangeEmergency(e.target.name, e.target.value)} required />
+                            </div>
+
+                            <div className="col">
+                                <label htmlFor="dataInizio">Telefono</label>
+                                <input
+                                    className="form-control mb-3"
+                                    name="telefono"
+                                    type="text"
+                                    value={emergencyContact.telefono}
+                                    onChange={(e) => onChangeEmergency(e.target.name, e.target.value)} required />
+                            </div>
+
+                            <div className="col">
+                                <div className="col">
+                                    <label htmlFor="dataInizio">Relazione</label>
+                                    <input
+                                        className="form-control mb-3"
+                                        name="relazione"
+                                        type="text"
+                                        value={emergencyContact.relazione}
+                                        onChange={(e) => onChangeEmergency(e.target.name, e.target.value)} required />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
-
-
-                    <button className="btn my-3">Aggiungi viaggio</button>
+                    <button className="btn my-3">Aggiungi partecipante</button>
 
                     <div className={message.state == 'success' ? 'text-success' : 'text-danger'}>
                         <span>{message.state}</span>
-                        <span>{message.message}</span>
+                        <span> <i class="bi bi-arrow-bar-right"></i> {message.message}</span>
                     </div>
 
                 </form >

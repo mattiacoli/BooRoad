@@ -46,19 +46,28 @@ export default function Trip() {
     email: "",
     telefono: "",
     codiceFiscale: "",
-    contattoEmergenza: {
-      nome: "",
-      telefono: "",
-      relazione: ""
-    }
+  })
+
+  const [emergencyContact, setEmergencyContact] = useState({
+    nome: "",
+    telefono: "",
+    relazione: ""
   })
 
   const [message, setMessage] = useState('')
 
 
-  function handleChange(key, value) {
+  function handleChangeUser(key, value) {
     setNewUser({
       ...newUser,
+      [key]: value
+    })
+
+  }
+
+  function handleChangeEmergency(key, value) {
+    setEmergencyContact({
+      ...emergencyContact,
       [key]: value
     })
 
@@ -89,24 +98,42 @@ export default function Trip() {
         email: "",
         telefono: "",
         codiceFiscale: "",
-        contattoEmergenza: {
-          nome: "",
-          telefono: "",
-          relazione: ""
-        }
+      })
+      setEmergencyContact({
+        nome: "",
+        telefono: "",
+        relazione: ""
       })
       return setMessage({
         state: 'error',
-        message: ' User already exists'
+        message: 'User already exists'
       })
     }
 
     //update the array
+
+    if (!emergencyContact.nome || !emergencyContact.telefono || !emergencyContact.relazione) {
+      return setMessage({
+        state: 'error',
+        message: 'Please add an emergency contact for this user'
+      })
+    } else if (emergencyContact.telefono == newUser.telefono) {
+      return setMessage({
+        state: 'error',
+        message: 'The emergency contact needs to be different from the user'
+      })
+    }
+
+    const userToPush = {
+      ...newUser,
+      contattoEmergenza: emergencyContact
+    }
+
     const updatedTrips = data.map(trip => {
       if (trip.id === Number(id)) {
         return {
           ...trip,
-          partecipanti: [...trip.partecipanti, newUser]
+          partecipanti: [...trip.partecipanti, userToPush]
         }
       }
       return trip
@@ -122,11 +149,11 @@ export default function Trip() {
       email: "",
       telefono: "",
       codiceFiscale: "",
-      contattoEmergenza: {
-        nome: "",
-        telefono: "",
-        relazione: ""
-      }
+    })
+    setEmergencyContact({
+      nome: "",
+      telefono: "",
+      relazione: ""
     })
     return setMessage({
       state: 'success',
@@ -161,7 +188,9 @@ export default function Trip() {
         <AddUsersForm
           onSubmit={handleSubmit}
           newUser={newUser}
-          onChange={handleChange}
+          emergencyContact={emergencyContact}
+          onChangeUser={handleChangeUser}
+          onChangeEmergency={handleChangeEmergency}
           message={message}
 
         />
