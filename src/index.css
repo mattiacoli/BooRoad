@@ -3,6 +3,8 @@
 
 :root {
   --br-primary: rgb(228, 115, 23);
+  --br-warning: rgb(255, 208, 0);
+  --br-danger: rgb(255, 27, 20);
 }
 
 
@@ -18,7 +20,7 @@ body {
 
   &:hover {
     color: var(--br-primary);
-    border-bottom: 4px solid var(--br-primary)
+    border-bottom: 4px solid var(--br-primary);
   }
 }
 
@@ -38,6 +40,29 @@ main {
       color: var(--br-primary);
       font-weight: 700;
 
+    }
+
+
+  }
+
+  .danger {
+    background-color: var(--br-danger);
+
+    &:hover {
+      border-color: var(--br-primary);
+      background-color: transparent;
+      color: var(--br-primary);
+    }
+  }
+
+  .warning {
+    background-color: var(--br-warning);
+    color: black;
+
+    &:hover {
+      border-color: var(--br-primary);
+      background-color: transparent;
+      color: var(--br-primary);
     }
   }
 

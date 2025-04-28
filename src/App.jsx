@@ -6,6 +6,7 @@ import Trip from "./pages/Trip";
 import AddTrip from "./pages/AddTrip";
 import NotFound from "./pages/404";
 import { TripProvider } from "./contexts/TripContext";
+import EditUser from "./pages/EditUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/elenco_utenti" Component={UsersContacts} />
               <Route path="/:id/trip" Component={Trip} />
               <Route path="/addtrip" Component={AddTrip} />
+              <Route path="/edit" Component={EditUser} />
               <Route path="*" Component={NotFound} />
             </Route>
           </Routes>

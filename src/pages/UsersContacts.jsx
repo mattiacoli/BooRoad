@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function UsersContacts() {
 
-  const { data } = useTripContext()
+  const { data, deleteUser } = useTripContext()
 
   const [sortDirection, setSortDirection] = useState("asc")
 
@@ -33,6 +33,7 @@ export default function UsersContacts() {
               <th scope="col">Contatto di Emergenza</th>
               <th scope="col">Relazione</th>
               <th scope="col">Telefono Emergenza</th>
+              <th scope="col">OPERAZIONI</th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +58,12 @@ export default function UsersContacts() {
                     <td>{user.contattoEmergenza.nome}</td>
                     <td>{user.contattoEmergenza.relazione}</td>
                     <td>{user.contattoEmergenza.telefono}</td>
+                    <td>
+                      <div className="button_container d-flex gap-2 ">
+                        <button className="btn warning">Edit</button>
+                        <button onClick={() => deleteUser(user.id)} className="btn danger">Delete</button>
+                      </div>
+                    </td>
                   </tr>
                 );
               })}
