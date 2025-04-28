@@ -23,8 +23,14 @@ export default function Trip() {
   const [UserList, setUserList] = useState([]);
 
   useEffect(() => {
-    setUserList(tripName.partecipanti)
-  }, [data])
+    const updatedTrip = data.find(trip => trip.id == id);
+    setTripName(updatedTrip);
+  }, [data, id])
+  useEffect(() => {
+    if (tripName) {
+      setUserList(tripName.partecipanti);
+    }
+  }, [tripName]);
 
   const handleSearch = (e) => {
     const searchValue = e.target.value.toLowerCase();
