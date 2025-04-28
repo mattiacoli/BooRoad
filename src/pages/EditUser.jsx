@@ -76,7 +76,7 @@ export default function EditUser() {
         const userTrip = findTripByUserId(userToPush.id)
 
         if (!userTrip) {
-            console.log('nessun viaggio trovaot per l"utente');
+            console.log('nessun viaggio trovato per l"utente');
             return
         }
 
