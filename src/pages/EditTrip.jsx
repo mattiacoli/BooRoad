@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../contexts/TripContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import UserListUi from "../components/dumb/UserList.ui"
 import { useNavigate } from "react-router-dom"
 import ChangeCompanions from "../components/smart/ChangeCompanions"
@@ -20,6 +20,10 @@ export default function EditTrip() {
     const [currentTrip, setCurrentTrip] = useState(data.find(item => item.id == id))
     const [currentUsers, setCurrentUsers] = useState(data.find(item => item.id == id).partecipanti)
     const [currentCompanions, setCurrentCompanions] = useState(data.find(item => item.id == id).accompagnatori)
+
+    useEffect(() => {
+        setCurrentCompanions(data.find(item => item.id == id).accompagnatori)
+    }, [data])
 
     //search filter
     const [sortDirection, setSortDirection] = useState("asc");
