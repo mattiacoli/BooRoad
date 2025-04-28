@@ -28,6 +28,7 @@ export default function TripTable() {
                 <th>Data Inizio</th>
                 <th>Data Fine</th>
                 <th className="text-center">Partecipanti</th>
+                <th className="text-center">ACTIONS</th>
               </tr>
             </thead>
             <tbody className="table table-sm table-striped">
@@ -45,6 +46,12 @@ export default function TripTable() {
                       <td>{trip.dataInizio}</td>
                       <td>{trip.dataFine}</td>
                       <td className="text-center">{trip.partecipanti.length}</td>
+                      <td>
+                        <div className="button_container d-flex gap-2 justify-content-center bg-transparent">
+                          <button onClick={() => navigate(`/${trip.id}/edit`)} className="btn btn-actions btn-warning">Edit</button>
+                          <button onClick={() => deleteUser(user.id)} className="btn btn-actions btn-danger">Delete</button>
+                        </div>
+                      </td>
                     </tr>
                   )
                 })
