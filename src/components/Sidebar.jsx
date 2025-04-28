@@ -9,7 +9,7 @@ export default function Sidebar() {
         <p>Home</p>
       </Link>
 
-      <Link to='/elenco_utenti' className="nav-link dashboard text-center text-decoration-none" >
+      <Link to='/dashboard' className="nav-link dashboard text-center text-decoration-none" >
         <i className="bi bi-speedometer2 fs-3"></i>
         <p>Dashboard</p>
       </Link>
