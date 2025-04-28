@@ -43,7 +43,7 @@ export default function Trip() {
         <img
           className="img-fluid rounded-3 object-fit-cover object-fit-center"
           src={tripName.immagine}
-          style={{ width: "85%", height: "500px", marginTop: "10px", marginBottom: "10px" }}
+          style={{ width: "85%", height: "550px", marginTop: "10px", marginBottom: "10px" }}
         />
         <p>
           🗓️ {tripName.dataInizio} - {tripName.dataFine}
