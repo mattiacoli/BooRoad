@@ -104,4 +104,8 @@ const gite = [
 
 ];
 
-export default gite;
+const defaultImage = {
+    placeholder: "/images/placeholder.jpg",
+}
+
+export default gite; defaultImage
