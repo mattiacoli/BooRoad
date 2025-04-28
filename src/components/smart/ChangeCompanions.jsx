@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useTripContext } from "../../contexts/TripContext"
 import CompanionEditCardUi from "../dumb/CompanionEditCard.ui"
 
-export default function ChangeCompanions({ item, id }) {
+export default function ChangeCompanions({ item, id, title, buttonText }) {
 
     const { data, setData } = useTripContext()
 
@@ -49,6 +49,8 @@ export default function ChangeCompanions({ item, id }) {
     return (
         <>
             <CompanionEditCardUi
+                title={title}
+                buttonText={buttonText}
                 onchange={handleChangeCompanions}
                 onsubmit={handleSubmit}
                 companion={companion}
