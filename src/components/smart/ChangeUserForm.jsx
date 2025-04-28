@@ -1,4 +1,4 @@
-import ChangeUserFormUi from "../ChangeUserForm.ui"
+import ChangeUserFormUi from "../dumb/ChangeUserForm.ui"
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../../contexts/TripContext"
 import { useState } from "react"

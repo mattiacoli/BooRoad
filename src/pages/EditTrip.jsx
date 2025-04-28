@@ -1,16 +1,41 @@
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../contexts/TripContext"
 import { useState } from "react"
+import UserListUi from "../components/dumb/UserList.ui"
+import { useNavigate } from "react-router-dom"
 
 export default function EditTrip() {
 
-    const { data } = useTripContext()
+    const { data, deleteUser, searchQuery } = useTripContext()
 
     const { id } = useParams()
 
     const [currentTrip, setCurrentTrip] = useState(data.find(item => item.id == id))
     const [currentUsers, setCurrentUsers] = useState(data.find(item => item.id == id).partecipanti)
     const [currentCompanions, setCurrentCompanions] = useState(data.find(item => item.id == id).accompagnatori)
+
+    //search filter
+    const [sortDirection, setSortDirection] = useState("asc");
+
+    const navigate = useNavigate()
+
+    function handleSort() {
+        setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
+    }
+
+    const filteredUsers = currentUsers
+        .filter((user) =>
+            `${user.nome} ${user.cognome}`
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+        )
+        .sort((a, b) => {
+            if (sortDirection === "asc") {
+                return a.cognome.localeCompare(b.cognome);
+            } else {
+                return b.cognome.localeCompare(a.cognome);
+            }
+        });
 
     //onchange logic
     function handleChangeTrip(key, value) {
@@ -93,14 +118,12 @@ export default function EditTrip() {
                     </div>
                     <div className="col edit_info">
                         <h1>Modifica i partecipanti:</h1>
-                        <label className="edit_label" htmlFor="">Nome</label>
-                        <input
-                            onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                            value={currentTrip.nome}
-                            name="nome"
-                            className="edit_input"
-                            placeholder="nome"
-                            type="text"
+                        <UserListUi
+                            userList={filteredUsers}
+                            handleSort={handleSort}
+                            sortDirection={sortDirection}
+                            deleteUser={deleteUser}
+                            navigate={navigate}
                         />
                     </div>
 
