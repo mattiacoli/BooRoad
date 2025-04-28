@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../contexts/TripContext"
+import { useState } from "react"
 
 export default function EditTrip() {
 
@@ -7,7 +8,7 @@ export default function EditTrip() {
 
     const { id } = useParams()
 
-    const currentTrip = data.find(item => item.id == id)
+    const [currentTrip, setCurrentTrip] = useState(data.find(item => item.id == id))
 
     return (
         <>
