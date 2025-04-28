@@ -35,6 +35,12 @@ export default function AddCompanion({ tripId, data, setData, message, title, bu
         const updatedData = data.map(trip => trip.id == tripId ? udpatedTrip : trip)
 
         setData(updatedData)
+        setCompanion({
+            nome: '',
+            cognome: '',
+            email: '',
+            telefono: ''
+        })
     }
 
     return (
