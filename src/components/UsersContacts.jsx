@@ -26,10 +26,7 @@ export default function UsersContacts() {
 
   return (
     <>
-      <div className="container py-5 mb-4 bg-lighter rounded-3">
-        <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
-        <p className="col-md-8 fs-4">Qui puoi gestire gli utenti e i viaggi</p>
-      </div>
+
 
       <div className="container mt-4">
         <h1 className="my-3">Elenco Utenti</h1>
