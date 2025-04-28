@@ -1,29 +1,32 @@
-import { useTripContext } from '../contexts/TripContext'
-import TravelCard from '../components/TravelCard'
-import { Link } from 'react-router-dom'
+import { useTripContext } from "../contexts/TripContext";
+import TravelCard from "../components/TravelCard";
+import { Link } from "react-router-dom";
 
 export default function Home() {
+  const { data, searchQuery } = useTripContext();
 
-  const { data } = useTripContext()
+  // Filtra i viaggi in base alla query di ricerca
+  const filteredTrips = data.filter(gita =>
+    gita.nome.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    gita.città.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
       <div className="container py-5 mb-4 bg-lighter rounded-3">
-        <h1 className="display-5 fw-bold">Benvenuto nella Dashboard</h1>
-        <p className="col-md-8 fs-4">Qui puoi gestire i tuoi viaggi e i partecipanti.</p>
+        <h1 className="display-5 fw-bold">Benvenuto nella Home</h1>
+        <p className="col-md-8 fs-4">Qui puoi visualizzare i viaggi</p>
       </div>
 
       <div className="container">
-
-        {/* add new trip */}
-        <Link to='/addtrip'>
-          <button className='btn  my-4'>+ Nuovo Viaggio</button>
+        {/* Add new trip */}
+        <Link to="/addtrip">
+          <button className="btn my-4">+ Nuovo Viaggio</button>
         </Link>
 
-
-        {/* travel card */}
+        {/* Travel cards */}
         <div className="row row-cols-1 row-cols-md-3 g-4 pb-5">
-          {data.map(gita => (
+          {filteredTrips.map((gita) => (
             <TravelCard
               key={gita.id}
               id={gita.id}
@@ -38,5 +41,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  )
+  );
 }

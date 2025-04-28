@@ -1,12 +1,11 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import trips from '../data/data'
+import { createContext, useContext, useState } from "react";
+import trips from '../data/data';
 
-const TripContext = createContext()
+const TripContext = createContext();
 
 function TripProvider({ children }) {
-
-    const [data, setData] = useState(trips)
-    console.log(data);
+    const [data, setData] = useState(trips);
+    const [searchQuery, setSearchQuery] = useState(""); // Stato per la ricerca
 
 
     function deleteUser(id) {
@@ -30,15 +29,15 @@ function TripProvider({ children }) {
     }
 
     return (
-        <TripContext.Provider value={{ data, setData, deleteUser }}>
+
+        <TripContext.Provider value={{ data, setData, deleteUser, searchQuery, setSearchQuery }}>
             {children}
         </TripContext.Provider>
-    )
+    );
 }
 
 function useTripContext() {
-    const context = useContext(TripContext)
-    return context
+    return useContext(TripContext);
 }
 
-export { TripProvider, useTripContext }
+export { TripProvider, useTripContext };

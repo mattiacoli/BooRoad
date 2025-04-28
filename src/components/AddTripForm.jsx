@@ -1,9 +1,12 @@
 export default function AddTripFrom({ onSubmit, newTrip, onChange, message }) {
     return (
         <>
-            <div className="container">
-                <h1 className="my-4">Aggiungi nuovo viaggio</h1>
 
+            <div className="form_jumbotron container d-flex justify-content-center align-items-center flex-column">
+                <h1 className="my-4">Aggiungi nuovo viaggio</h1>
+            </div>
+
+            <div className="container mb-5">
                 <form onSubmit={(e) => { e.preventDefault(); onSubmit() }} className="form-control p-4" action="">
 
 
