@@ -36,30 +36,29 @@ export default function UsersContacts() {
         </thead>
         <tbody>
 
-          {data.flatMap((trip) => {
-            trip.partecipanti
-              .sort((a, b) => {
-                if (sortDirection === "asc") {
-                  return a.cognome.localeCompare(b.cognome);
-                } else {
-                  return b.cognome.localeCompare(a.cognome);
-                }
-              })
-              .map((user) => {
-                return (
-                  <tr key={user.id}>
-                    <td>{user.cognome}</td>
-                    <td scope="row">{user.nome}</td>
-                    <td>{user.email}</td>
-                    <td>{user.telefono}</td>
-                    <td>{user.codiceFiscale}</td>
-                    <td>{user.contattoEmergenza.nome}</td>
-                    <td>{user.contattoEmergenza.relazione}</td>
-                    <td>{user.contattoEmergenza.telefono}</td>
-                  </tr>
-                );
-              });
-          })}
+          {data
+            .flatMap((trip) => trip.partecipanti)
+            .sort((a, b) => {
+              if (sortDirection === "asc") {
+                return a.cognome.localeCompare(b.cognome);
+              } else {
+                return b.cognome.localeCompare(a.cognome);
+              }
+            })
+            .map((user) => {
+              return (
+                <tr key={user.id}>
+                  <td>{user.cognome}</td>
+                  <td scope="row">{user.nome}</td>
+                  <td>{user.email}</td>
+                  <td>{user.telefono}</td>
+                  <td>{user.codiceFiscale}</td>
+                  <td>{user.contattoEmergenza.nome}</td>
+                  <td>{user.contattoEmergenza.relazione}</td>
+                  <td>{user.contattoEmergenza.telefono}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div >
