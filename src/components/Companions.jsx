@@ -13,7 +13,7 @@ export default function Companions({ nome, cognome, email, telefono, id }) {
                 </h2>
                 <div
                     id={`comp-${id}`}
-                    className="accordion-collapse collapse show" data-bs-parent="#compAccordion"
+                    className="accordion-collapse collapse" data-bs-parent="#compAccordion"
                 >
                     <div className="accordion-body">
                         <ul>
