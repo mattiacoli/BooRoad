@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import UserListUi from "../components/dumb/UserList.ui"
 import { useNavigate } from "react-router-dom"
 import ChangeCompanions from "../components/smart/ChangeCompanions"
+import AddCompanion from "../components/smart/AddCompanion"
 
 export default function EditTrip() {
 
@@ -149,10 +150,32 @@ export default function EditTrip() {
                 <div className="col edit_info">
                     <h1>Modifica i dettagli degli accompagnatori:</h1>
                     <div className="row row-cols-2">
-                        {
+                        {currentCompanions.length < 2 ? (<>
+                            {currentCompanions.map(item => (
+                                <>
+                                    <ChangeCompanions
+                                        title={'Info Accompagnatore'}
+                                        buttonText={'Salva Modifiche'}
+                                        id={id}
+                                        key={item.id}
+                                        item={item}
+                                    />
+                                </>
+                            ))}
+                            <AddCompanion
+                                title={'Aggiungi un Accompagnatore'}
+                                buttonText={'Aggiungi'}
+                                data={data}
+                                tripId={id}
+                                setData={setData}
+                                message={message}
+                            />
+                        </>) :
                             currentCompanions.map(item => (
                                 <>
                                     <ChangeCompanions
+                                        title={'Info Accompagnatore'}
+                                        buttonText={'Salva Modifiche'}
                                         id={id}
                                         key={item.id}
                                         item={item}

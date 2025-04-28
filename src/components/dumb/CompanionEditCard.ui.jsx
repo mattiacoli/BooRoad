@@ -1,8 +1,10 @@
 import { useTripContext } from "../../contexts/TripContext";
 
-export default function CompanionEditCardUi({ onchange, onsubmit, companion, message, tripId }) {
+export default function CompanionEditCardUi({ onchange, onsubmit, companion, message, tripId, title, buttonText }) {
 
     const { deleteCompanion } = useTripContext()
+    console.log(title);
+
 
     return (
         <>
@@ -10,7 +12,7 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                 <form onSubmit={(e) => { e.preventDefault(); onsubmit() }} action="">
                     <div className="card">
                         <div className="card-header">
-                            <h3>Info accompagnatore:</h3>
+                            <h3>{title}</h3>
                             <div className="card-body">
                                 <label htmlFor="" className="edit_label">Nome:</label>
                                 <input
@@ -65,8 +67,10 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                                 }
                             </div>
                             <div className="card-footer text-center">
-                                <button type="submit" className="btn mx-4">Salva Modifiche</button>
-                                <button type="button" onClick={() => deleteCompanion(companion.id, tripId)} className="btn btn-actions btn-danger my-4">Elimina Accompagnatore</button>
+                                <button type="submit" className="btn mx-4">{buttonText}</button>
+                                {buttonText == 'Aggiungi' ? (<></>) : (<>
+                                    <button type="button" onClick={() => deleteCompanion(companion.id, tripId)} className="btn btn-actions btn-danger my-4">Elimina Accompagnatore</button>
+                                </>)}
                             </div>
                         </div>
                     </div>
