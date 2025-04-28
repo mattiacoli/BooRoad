@@ -24,7 +24,7 @@ export default function UsersContacts() {
           <tr>
             <th scope="col"
               onClick={handleSort}
-              style={{ cursor: 'pointer' }}>Cognome {sortDirection === "asc" ? "🔼" : "🔽"}</th>
+              style={{ cursor: 'pointer' }}>Cognome {sortDirection === "asc" ? <i className="bi bi-chevron-down"></i> : <i className="bi bi-chevron-up"></i>}</th>
             <th scope="col">Nome</th>
             <th scope="col">Mail</th>
             <th scope="col">Telefono</th>
