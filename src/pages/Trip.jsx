@@ -211,7 +211,7 @@ export default function Trip() {
 
       />
 
-      <div className="container">
+      <div className="container mt-4 pb-4">
         <h4>Ricerca Partecipanti</h4>
 
         <input
