@@ -38,6 +38,8 @@ export default function Home() {
               travelName={gita.nome}
               travelLocation={gita.città}
               partecipanti={gita.partecipanti}
+              dataInizio={gita.dataInizio}
+              dataFine={gita.dataFine}
             />
           ))}
         </div>
