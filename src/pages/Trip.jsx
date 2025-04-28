@@ -5,7 +5,7 @@ import User from "../components/UserCard.jsx";
 import AddUsersForm from "../components/AddUsersForm.jsx";
 
 export default function Trip() {
-  const { data } = useTripContext();
+  const { data, setData } = useTripContext();
 
   const { id } = useParams();
   console.log(id);
@@ -17,8 +17,6 @@ export default function Trip() {
       tripName = data[i];
     }
   }
-
-  console.log(tripName);
 
   const [searchUser, setSearchUser] = useState("");
   const [UserList, setUserList] = useState(tripName.partecipanti);
@@ -36,6 +34,105 @@ export default function Trip() {
 
     setUserList(filteredUsers);
   };
+
+
+
+  //logic for add users form
+
+  const [newUser, setNewUser] = useState({
+    id: null,
+    nome: "",
+    cognome: "",
+    email: "",
+    telefono: "",
+    codiceFiscale: "",
+    contattoEmergenza: {
+      nome: "",
+      telefono: "",
+      relazione: ""
+    }
+  })
+
+  const [message, setMessage] = useState('')
+
+
+  function handleChange(key, value) {
+    setNewUser({
+      ...newUser,
+      [key]: value
+    })
+
+  }
+
+  function handleSubmit() {
+    console.log('submit');
+
+    const trip = data.find(trip => trip.id === Number(id))
+
+    if (!trip) {
+      return setMessage({
+        state: 'error',
+        message: 'Trip not found'
+      })
+    }
+
+    const newId = trip.partecipanti.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
+    newUser.id = newId
+
+    const checkUser = trip.partecipanti.find(item => item.codiceFiscale == newUser.codiceFiscale)
+    console.log(checkUser);
+    if (checkUser) {
+      setNewUser({
+        id: null,
+        nome: "",
+        cognome: "",
+        email: "",
+        telefono: "",
+        codiceFiscale: "",
+        contattoEmergenza: {
+          nome: "",
+          telefono: "",
+          relazione: ""
+        }
+      })
+      return setMessage({
+        state: 'error',
+        message: ' User already exists'
+      })
+    }
+
+    //update the array
+    const updatedTrips = data.map(trip => {
+      if (trip.id === Number(id)) {
+        return {
+          ...trip,
+          partecipanti: [...trip.partecipanti, newUser]
+        }
+      }
+      return trip
+    })
+
+    setData(updatedTrips)
+    console.log(data);
+
+    setNewUser({
+      id: null,
+      nome: "",
+      cognome: "",
+      email: "",
+      telefono: "",
+      codiceFiscale: "",
+      contattoEmergenza: {
+        nome: "",
+        telefono: "",
+        relazione: ""
+      }
+    })
+    return setMessage({
+      state: 'success',
+      message: 'User added correctly'
+    })
+  }
 
   return (
     <>
@@ -61,7 +158,13 @@ export default function Trip() {
           value={searchUser}
           onChange={handleSearch}
         />
-        <AddUsersForm />
+        <AddUsersForm
+          onSubmit={handleSubmit}
+          newUser={newUser}
+          onChange={handleChange}
+          message={message}
+
+        />
 
         <div className="accordion mt-3" id="usersAccordion">
           {UserList.map((user) => (

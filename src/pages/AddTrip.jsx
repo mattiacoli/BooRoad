@@ -51,7 +51,6 @@ export default function AddTrip() {
       })
     }
 
-    console.log('submit');
     console.log(newTrip);
     setData([...data, newTrip])
     console.log(data);

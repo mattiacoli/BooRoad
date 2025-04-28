@@ -1,21 +1,100 @@
-export default function AddUsersForm() {
+export default function AddUsersForm({ onSubmit, newUser, onChange, message }) {
     return (
         <>
-            <h1>form per aggiungere partecipanti al viaggio</h1>
-            <form action="">
-                <input className="form-control" name="username" type="text" />
-                <input className="form-control" name="lastname" type="text" />
-                <input className="form-control" name="email" type="text" />
-                <input className="form-control" name="phone" type="text" />
-                <input className="form-control" name="cf" type="text" />
-                <button>inserisci partecipanti</button>
-                <form action="">
-                    <input className="form-control" name="emergency_name" type="text" />
-                    <input className="form-control" name="emergency_phone" type="text" />
-                    <input className="form-control" name="relationship" type="text" />
-                    <button>inserisci contatto di emergenza</button>
-                </form>
-            </form>
+            <div className="container">
+                <h1 className="my-4">Aggiungi un partecipante</h1>
+
+                <form onSubmit={(e) => { e.preventDefault(); onSubmit() }} className="form-control p-4" action="">
+
+
+
+                    <label htmlFor="nome mb-2"> Nome Partecipante</label>
+                    <input
+                        className="form-control mb-3"
+                        name="nome"
+                        type="text"
+                        value={newUser.nome}
+                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+
+
+                    <label htmlFor="citta mb-2">Cognome Partecipante</label>
+                    <input className="form-control mb-3"
+                        name="cognome"
+                        type="text"
+                        value={newUser.cognome}
+                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+
+                    <label htmlFor="immagine mb-2"> Email Partecipante</label>
+                    <input
+                        className="form-control mb-3"
+                        name="email"
+                        type="email"
+                        value={newUser.email}
+                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+
+                    <label htmlFor="immagine mb-2"> Telefono Partecipante</label>
+                    <input
+                        className="form-control mb-3"
+                        name="telefono"
+                        type="text"
+                        value={newUser.telefono}
+                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+
+                    <label htmlFor="immagine mb-2"> Codice fiscale Partecipante</label>
+                    <input
+                        className="form-control mb-3"
+                        name="codiceFiscale"
+                        type="text"
+                        value={newUser.codiceFiscale}
+                        onChange={(e) => onChange(e.target.name, e.target.value)} required />
+
+                    <h4>Contatto di emergenza</h4>
+
+                    <div className="row row-cols-3">
+                        <div className="col">
+                            <label htmlFor="dataInizio">Nome</label>
+                            <input
+                                className="form-control mb-3"
+                                name="nome"
+                                type="text"
+                                value={newUser.contattoEmergenza.nome}
+                                onChange={(e) => onChange(e.target.name, e.target.value)} />
+                        </div>
+
+                        <div className="col">
+                            <label htmlFor="dataInizio">Telefono</label>
+                            <input
+                                className="form-control mb-3"
+                                name="telefono"
+                                type="text"
+                                value={newUser.contattoEmergenza.telefono}
+                                onChange={(e) => onChange(e.target.name, e.target.value)} />
+                        </div>
+
+                        <div className="col">
+                            <div className="col">
+                                <label htmlFor="dataInizio">Relazione</label>
+                                <input
+                                    className="form-control mb-3"
+                                    name="relazione"
+                                    type="text"
+                                    value={newUser.contattoEmergenza.relazione}
+                                    onChange={(e) => onChange(e.target.name, e.target.value)} />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <button className="btn my-3">Aggiungi viaggio</button>
+
+                    <div className={message.state == 'success' ? 'text-success' : 'text-danger'}>
+                        <span>{message.state}</span>
+                        <span>{message.message}</span>
+                    </div>
+
+                </form >
+            </div >
         </>
     )
 }
