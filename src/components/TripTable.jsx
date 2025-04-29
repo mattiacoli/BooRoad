@@ -53,8 +53,8 @@ export default function TripTable() {
                       </td>
                       <td>{trip.nome}</td>
                       <td>{trip.città}</td>
-                      <td>{trip.dataInizio}</td>
-                      <td>{trip.dataFine}</td>
+                      <td>{new Date(trip.dataInizio).toLocaleDateString('it-IT')}</td>
+                      <td>{new Date(trip.dataFine).toLocaleDateString('it-IT')}</td>
                       <td className="text-center">{trip.partecipanti.length}</td>
                       <td>
                         <div className="button_container d-flex gap-2 justify-content-center bg-transparent">

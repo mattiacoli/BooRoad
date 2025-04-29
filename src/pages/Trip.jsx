@@ -207,7 +207,7 @@ export default function Trip() {
           onError={(e) => { e.target.onerror = null; e.target.src = "/images/placeholder.jpg"; }}
         />
         <p>
-          🗓️ {tripName.dataInizio} - {tripName.dataFine}
+          🗓️ {new Date(tripName.dataInizio).toLocaleDateString('it-IT')} - {new Date(tripName.dataFine).toLocaleDateString('it-IT')}
         </p>
         <p>📍 Location: {tripName.città}</p>
         <p>👤 Partecipanti: {tripName.partecipanti.length}</p>
