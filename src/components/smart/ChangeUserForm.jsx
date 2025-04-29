@@ -11,6 +11,10 @@ export default function ChangeUserForm() {
 
     const [user, setUser] = useState(findUser())
     const [emergency, setEmergency] = useState(findEmergency())
+    console.log(user);
+
+
+    const [userTrips, setUserTrips] = useState(data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale)))
 
     //find the user by creating a users flat array and comparing user id
     function findUser() {
@@ -31,8 +35,6 @@ export default function ChangeUserForm() {
         console.log(usersList);
 
         const emergencyFound = usersList.find(user => user.id == id).contattoEmergenza;
-
-        console.log(emergencyFound);
 
         return emergencyFound
     }
@@ -106,6 +108,7 @@ export default function ChangeUserForm() {
                 user={user}
                 emergency={emergency}
                 onSubmit={handleSubmit}
+                userTrips={userTrips}
             />
         </>
     )

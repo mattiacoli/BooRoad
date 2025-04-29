@@ -1,4 +1,6 @@
-export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user, emergency, onSubmit }) {
+import UserTripListUi from "./UserTripList.ui";
+
+export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user, emergency, onSubmit, userTrips }) {
     return (
         <>
             <div className="container">
@@ -97,6 +99,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                         </div>
                         <button type="submit" className="btn mt-4">Salva Modifiche</button>
                     </form>
+                    <UserTripListUi userTrips={userTrips} />
                 </div>
             </div>
         </>
