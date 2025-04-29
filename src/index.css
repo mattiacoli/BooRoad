@@ -48,6 +48,12 @@ body {
 /* #region main */
 
 main {
+
+  hr {
+
+    border: 2px solid var(--br-primary)
+  }
+
   .btn:not(.btn-actions) {
     background-color: var(--br-primary);
     color: white;
