@@ -9,7 +9,7 @@ export default function Header() {
       <div className="logo">
 
         <Link to="/" className="navbar-brand ms-3 ">
-          <img src="src/assets/logo.png" style={{ width: "100px", maxHeight: '80px' }} alt="Logo" />
+          <img src="/images/logo.png" style={{ width: "100px", maxHeight: '80px' }} alt="Logo" />
         </Link>
       </div>
 
