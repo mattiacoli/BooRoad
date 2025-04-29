@@ -7,6 +7,7 @@ export default function Home() {
 
   // Filtra i viaggi in base alla query di ricerca
   const filteredTrips = data.filter(gita =>
+
     gita.nome.toLowerCase().includes(searchQuery.toLowerCase()) ||
     gita.città.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -31,6 +32,7 @@ export default function Home() {
               partecipanti={gita.partecipanti}
               dataInizio={gita.dataInizio}
               dataFine={gita.dataFine}
+              accompagnatori={gita.accompagnatori}
             />
           ))}
         </div>
