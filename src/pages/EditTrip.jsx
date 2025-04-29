@@ -107,120 +107,133 @@ export default function EditTrip() {
     return (
         <>
             <div className="container">
-                <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} action="">
-                    <div className="row row-cols-1">
+                <div className="card my-4">
+                    <div className="card-body">
+                        <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} action="">
+                            <div className="row row-cols-1">
+                                <div className="col edit_info">
+                                    <h1>Modifica i dettagli del viaggio: </h1>
+                                    <label className="edit_label" htmlFor="">Nome</label>
+                                    <input
+                                        onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
+                                        value={currentTrip.nome}
+                                        name="nome"
+                                        className="edit_input"
+                                        placeholder="nome"
+                                        type="text"
+                                    />
+
+                                    <label className="edit_label" htmlFor="">Citta</label>
+                                    <input
+                                        onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
+                                        value={currentTrip.città}
+                                        name="città"
+                                        className="edit_input"
+                                        placeholder="citta"
+                                        type="text"
+                                    />
+
+                                    <label className="edit_label" htmlFor="">Data Inizio</label>
+                                    <input
+                                        onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
+                                        value={currentTrip.dataInizio}
+                                        name="dataInizio"
+                                        className="edit_input"
+                                        placeholder="data inizio"
+                                        type="date"
+                                    />
+
+                                    <label className="edit_label" htmlFor="">Data Fine</label>
+                                    <input
+                                        onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
+                                        value={currentTrip.dataFine}
+                                        name="dataFine"
+                                        className="edit_input"
+                                        placeholder="data fine"
+                                        type="date"
+                                    />
+
+                                    <label className="edit_label" htmlFor="">Immagine</label>
+                                    <input
+                                        onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
+                                        value={currentTrip.immagine}
+                                        name="immagine"
+                                        className="edit_input"
+                                        placeholder="immagine"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                            {message.state == 'success' ? (
+                                <>
+                                    <div className="text-success mt-4">
+                                        <span htmlFor="">{message.state}: </span>
+                                        <span>{message.message}</span>
+                                    </div>
+
+                                </>
+                            ) : (<></>)}
+                            <button type="submit" className="btn my-4">Salva Modifiche</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div className="card my-4">
+                    <div className="card-body">
                         <div className="col edit_info">
-                            <h1>Modifica i dettagli del viaggio: </h1>
-                            <label className="edit_label" htmlFor="">Nome</label>
-                            <input
-                                onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                                value={currentTrip.nome}
-                                name="nome"
-                                className="edit_input"
-                                placeholder="nome"
-                                type="text"
-                            />
-
-                            <label className="edit_label" htmlFor="">Citta</label>
-                            <input
-                                onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                                value={currentTrip.città}
-                                name="città"
-                                className="edit_input"
-                                placeholder="citta"
-                                type="text"
-                            />
-
-                            <label className="edit_label" htmlFor="">Data Inizio</label>
-                            <input
-                                onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                                value={currentTrip.dataInizio}
-                                name="dataInizio"
-                                className="edit_input"
-                                placeholder="data inizio"
-                                type="date"
-                            />
-
-                            <label className="edit_label" htmlFor="">Data Fine</label>
-                            <input
-                                onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                                value={currentTrip.dataFine}
-                                name="dataFine"
-                                className="edit_input"
-                                placeholder="data fine"
-                                type="date"
-                            />
-
-                            <label className="edit_label" htmlFor="">Immagine</label>
-                            <input
-                                onChange={(e) => handleChangeTrip(e.target.name, e.target.value)}
-                                value={currentTrip.immagine}
-                                name="immagine"
-                                className="edit_input"
-                                placeholder="immagine"
-                                type="text"
+                            <h1>Modifica i dettagli degli accompagnatori:</h1>
+                            <div className="row row-cols-2">
+                                {currentCompanions.length < 2 ? (<>
+                                    {currentCompanions.map(item => (
+                                        <>
+                                            <ChangeCompanions
+                                                title={'Info Accompagnatore'}
+                                                buttonText={'Salva Modifiche'}
+                                                id={id}
+                                                key={item.id}
+                                                item={item}
+                                            />
+                                        </>
+                                    ))}
+                                    <AddCompanion
+                                        title={'Aggiungi un Accompagnatore'}
+                                        buttonText={'Aggiungi'}
+                                        data={data}
+                                        tripId={id}
+                                        setData={setData}
+                                        message={message}
+                                    />
+                                </>) :
+                                    currentCompanions.map(item => (
+                                        <>
+                                            <ChangeCompanions
+                                                title={'Info Accompagnatore'}
+                                                buttonText={'Salva Modifiche'}
+                                                id={id}
+                                                key={item.id}
+                                                item={item}
+                                            />
+                                        </>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="card my-4">
+                    <div className="card-body">
+                        <div className="col edit_info">
+                            <h1>Modifica i partecipanti:</h1>
+                            <UserListUi
+                                userList={filteredUsers}
+                                handleSort={handleSort}
+                                sortDirection={sortDirection}
+                                deleteUser={deleteUser}
+                                navigate={navigate}
                             />
                         </div>
                     </div>
-                    {message.state == 'success' ? (
-                        <>
-                            <div className="text-success mt-4">
-                                <span htmlFor="">{message.state}: </span>
-                                <span>{message.message}</span>
-                            </div>
-
-                        </>
-                    ) : (<></>)}
-                    <button type="submit" className="btn my-4">Salva Modifiche</button>
-                </form>
-
-                <div className="col edit_info">
-                    <h1>Modifica i dettagli degli accompagnatori:</h1>
-                    <div className="row row-cols-2">
-                        {currentCompanions.length < 2 ? (<>
-                            {currentCompanions.map(item => (
-                                <>
-                                    <ChangeCompanions
-                                        title={'Info Accompagnatore'}
-                                        buttonText={'Salva Modifiche'}
-                                        id={id}
-                                        key={item.id}
-                                        item={item}
-                                    />
-                                </>
-                            ))}
-                            <AddCompanion
-                                title={'Aggiungi un Accompagnatore'}
-                                buttonText={'Aggiungi'}
-                                data={data}
-                                tripId={id}
-                                setData={setData}
-                                message={message}
-                            />
-                        </>) :
-                            currentCompanions.map(item => (
-                                <>
-                                    <ChangeCompanions
-                                        title={'Info Accompagnatore'}
-                                        buttonText={'Salva Modifiche'}
-                                        id={id}
-                                        key={item.id}
-                                        item={item}
-                                    />
-                                </>
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className="col edit_info">
-                    <h1>Modifica i partecipanti:</h1>
-                    <UserListUi
-                        userList={filteredUsers}
-                        handleSort={handleSort}
-                        sortDirection={sortDirection}
-                        deleteUser={deleteUser}
-                        navigate={navigate}
-                    />
                 </div>
             </div>
 
