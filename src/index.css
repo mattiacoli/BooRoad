@@ -6,6 +6,8 @@
 }
 
 
+
+
 body {
   font-family: 'Outfit Variable', sans-serif;
 
@@ -18,36 +20,41 @@ body {
   }
 }
 
-/* #region header  */
-.menu_item {
-  padding-bottom: 40px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-
-  &:hover {
-    color: var(--br-primary);
-    border-bottom: 4px solid var(--br-primary)
-  }
+/* #region header/sidebar */
+#header {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%
 }
 
-.nav-link {
-  color: black;
+#sidebar {
+  position: fixed;
 
-  &:hover {
-    color: var(--br-primary);
+
+  .nav-link {
+    color: black;
+
+    &:hover {
+      color: var(--br-primary);
+    }
+
+    &:focus {
+      color: var(--br-primary);
+    }
   }
 
-  &:focus {
-    color: var(--br-primary);
-  }
 }
 
-/* #endregion header  */
-
+/* #endregion header/sidebar*/
 
 /* #region main */
 
 main {
+
+
+  padding-top: 6rem;
+
 
   hr {
 
@@ -116,23 +123,6 @@ main {
 }
 
 
-/* #endregion main */
-
-
-/* #region footer*/
-footer {
-  a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-
-    &:hover {
-      color: var(--br-primary)
-    }
-  }
-}
-
-/* #endregion footer*/
-
 /* Jumbotron Add Form */
 .form_jumbotron {
   height: 400px;
@@ -164,3 +154,6 @@ footer {
   }
 
 }
+
+
+/* #endregion main */
