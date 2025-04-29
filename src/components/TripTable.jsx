@@ -48,6 +48,7 @@ export default function TripTable() {
                     <tr key={trip.id}>
                       <td>
                         <img src={trip.immagine}
+                          onError={(e) => { e.target.onerror = null; e.target.src = "/images/placeholder.jpg"; }}
                           alt="travel image"
                           style={{ width: '80px', height: '50px' }} />
                       </td>
