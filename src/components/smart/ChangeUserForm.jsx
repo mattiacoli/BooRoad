@@ -11,7 +11,10 @@ export default function ChangeUserForm() {
 
     const [user, setUser] = useState(findUser())
     const [emergency, setEmergency] = useState(findEmergency())
-    console.log(user);
+    const [message, setMessage] = useState({
+        state: '',
+        message: ''
+    })
 
 
     const [userTrips, setUserTrips] = useState(data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale)))
@@ -101,8 +104,10 @@ export default function ChangeUserForm() {
 
         console.log(userToPush);
 
-        console.log(data);
-
+        setMessage({
+            state: 'success',
+            message: 'User Updates Correctly'
+        })
     }
 
 
@@ -115,6 +120,7 @@ export default function ChangeUserForm() {
                 emergency={emergency}
                 onSubmit={handleSubmit}
                 userTrips={userTrips}
+                message={message}
             />
         </>
     )
