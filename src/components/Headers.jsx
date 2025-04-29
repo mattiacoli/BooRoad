@@ -24,8 +24,8 @@ export default function Header() {
 
 
           <div className="collapse navbar-collapse  " id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li className="nav-item w-10">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-felx justify-content-center">
+              <li className="nav-item w-50">
 
 
 
