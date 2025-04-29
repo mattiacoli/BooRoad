@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import StatusTag from "./StatusTag"
-import Companions from "./Companions";
-
 
 export default function TravelCard({ image, travelName, travelLocation, id, partecipanti, dataInizio, dataFine, accompagnatori }) {
 
