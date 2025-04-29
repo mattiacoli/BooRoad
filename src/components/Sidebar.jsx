@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function Sidebar() {
   return (
 
-    <nav className="nav nav-dark d-flex flex-column gap-4 ">
+    <nav className="nav nav-dark d-flex flex-column gap-4 " id="sidebar">
       <Link to='/' className="nav-link home text-center text-decoration-none mt-5">
         <i className="bi bi-house fs-3"></i>
         <p>Home</p>
