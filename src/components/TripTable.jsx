@@ -1,5 +1,5 @@
 import { useTripContext } from "../contexts/TripContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function TripTable() {
 
@@ -19,7 +19,14 @@ export default function TripTable() {
       <div className="container">
 
         <div className="table-responsive">
-          <h1 className="my-3">Elenco Viaggi</h1>
+          <div className="d-flex justify-content-between">
+            <h1 className="my-3">Elenco Viaggi</h1>
+            {/* Add new trip */}
+            <Link to="/addtrip">
+              <button className="btn my-4 mx-5">+ Nuovo Viaggio</button>
+            </Link>
+          </div>
+
           <hr />
 
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>

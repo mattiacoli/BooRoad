@@ -3,8 +3,6 @@ import { useTripContext } from "../../contexts/TripContext";
 export default function CompanionEditCardUi({ onchange, onsubmit, companion, message, tripId, title, buttonText }) {
 
     const { deleteCompanion } = useTripContext()
-    console.log(title);
-
 
     return (
         <>

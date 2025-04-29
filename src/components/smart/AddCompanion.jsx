@@ -22,10 +22,17 @@ export default function AddCompanion({ tripId, data, setData, message, title, bu
     function handleSubmit() {
         console.log('submit');
 
+        const companionToPush = companion
+
+        const companionsList = data.flatMap(trip => trip.accompagnatori)
+
+        const newId = companionsList.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
+        companionToPush.id = newId
+
         const currentTrip = data.find(trip => trip.id == tripId)
 
 
-        const updadtedCompanions = [...currentTrip.accompagnatori, companion]
+        const updadtedCompanions = [...currentTrip.accompagnatori, companionToPush]
 
         const udpatedTrip = {
             ...currentTrip,

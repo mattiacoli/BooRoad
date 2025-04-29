@@ -11,20 +11,26 @@ export default function Trip() {
   const { id } = useParams();
   console.log(id);
 
-  let tripName;
+  console.log(data);
 
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].id == id) {
-      tripName = data[i];
-    }
-  }
+
+  const [tripName, setTripName] = useState(data.find(trip => trip.id == id))
+
+  console.log(tripName);
+
 
   const [searchUser, setSearchUser] = useState("");
   const [UserList, setUserList] = useState([]);
 
   useEffect(() => {
-    setUserList(tripName.partecipanti)
-  }, [data])
+    const updatedTrip = data.find(trip => trip.id == id);
+    setTripName(updatedTrip);
+  }, [data, id])
+  useEffect(() => {
+    if (tripName) {
+      setUserList(tripName.partecipanti);
+    }
+  }, [tripName]);
 
   const handleSearch = (e) => {
     const searchValue = e.target.value.toLowerCase();
@@ -95,7 +101,9 @@ export default function Trip() {
     }
 
     //create new id
-    const newId = trip.partecipanti.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
+    const usersList = data.flatMap(item => item.partecipanti)
+
+    const newId = usersList.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
     newUser.id = newId
 
     //value cehck
