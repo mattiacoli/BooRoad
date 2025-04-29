@@ -16,22 +16,27 @@ export default function Header() {
               <img src="/images/logo.png" style={{ width: "100px", maxHeight: '80px' }} alt="Logo" />
             </Link>
           </div>
+
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li className="nav-item">
-                <div className="searchbar w-80  flex-grow-1">
 
-                  <SearchBar />
-                </div>
+
+
+          <div className="collapse navbar-collapse  " id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+              <li className="nav-item w-10">
+
+
+
+                <SearchBar />
+
               </li>
-              <li className="nav-item ">
-                <Link to='/' className="text-decoration-none text-white">Home</Link>
+              <li className="nav-item d-block d-md-none">
+                <Link to='/' className="text-decoration-none text-white link">Home</Link>
               </li>
-              <li className="nav-item ">
-                <Link to='/dashboard' className="text-decoration-none text-white">Dashboard</Link>
+              <li className="nav-item d-block d-md-none ">
+                <Link to='/dashboard' className="text-decoration-none text-white link">Dashboard</Link>
               </li>
             </ul>
 

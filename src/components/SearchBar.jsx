@@ -4,9 +4,9 @@ export default function SearchBar() {
   const { searchQuery, setSearchQuery } = useTripContext();
 
   return (
-    <form className="w-100 d-flex justify-content-center" role="search">
+    <form className="" role="search">
       <input
-        className="form-control w-50"
+        className="form-control"
         type="search"
         placeholder="Cerca..."
         aria-label="Search"
