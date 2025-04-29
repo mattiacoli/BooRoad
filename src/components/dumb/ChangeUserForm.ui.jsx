@@ -18,6 +18,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Nome"
+                                    required
                                 />
 
                                 <label className="edit_label" htmlFor="">Cognome:</label>
@@ -28,6 +29,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Cognome"
+                                    required
                                 />
 
                                 <label className="edit_label">Email:</label>
@@ -38,6 +40,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="email"
                                     placeholder="Email"
+                                    required
                                 />
 
                                 <label className="edit_label">Telefono:</label>
@@ -48,6 +51,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Telefono"
+                                    required
                                 />
 
 
@@ -59,6 +63,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="C.F."
+                                    required
                                 />
                                 <h4>inserire viaggi a cui l'utente e iscritto</h4>
                             </div>
@@ -72,6 +77,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Nome"
+                                    required
                                 />
 
 
@@ -83,6 +89,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Telefono"
+                                    required
                                 />
 
 
@@ -94,6 +101,7 @@ export default function ChangeUserFormUi({ onChangeUser, onChangeEmergency, user
                                     className="edit_input"
                                     type="text"
                                     placeholder="Relazione"
+                                    required
                                 />
                             </div>
                         </div>

@@ -20,6 +20,7 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                                     className="edit_input"
                                     placeholder="Nome"
                                     type="text"
+                                    required
                                 />
 
                                 <label htmlFor="" className="edit_label">Cognome:</label>
@@ -30,6 +31,7 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                                     className="edit_input"
                                     placeholder="Cognome"
                                     type="text"
+                                    required
                                 />
 
                                 <label htmlFor="" className="edit_label">Email:</label>
@@ -40,6 +42,7 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                                     className="edit_input"
                                     placeholder="Email"
                                     type="email"
+                                    required
                                 />
 
                                 <label htmlFor="" className="edit_label">Telefono:</label>
@@ -50,6 +53,7 @@ export default function CompanionEditCardUi({ onchange, onsubmit, companion, mes
                                     className="edit_input"
                                     placeholder="Telefono"
                                     type="number"
+                                    required
                                 />
                             </div>
                             <div className="output">
