@@ -25,12 +25,25 @@ body {
 
 #header {
   position: fixed;
-
+  z-index: 5;
   width: 100%
 }
 
 #sidebar {
   position: fixed;
+
+  .nav-link {
+    color: black;
+
+    &:hover {
+      color: var(--br-primary);
+    }
+
+    &:focus {
+      color: var(--br-primary);
+    }
+  }
+
 }
 
 
@@ -41,7 +54,8 @@ body {
 
 main {
 
-  padding-top: 7rem;
+  padding-top: 6rem;
+
 
   hr {
 
