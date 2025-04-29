@@ -6,6 +6,8 @@
 }
 
 
+
+
 body {
   font-family: 'Outfit Variable', sans-serif;
 
@@ -18,19 +20,17 @@ body {
   }
 }
 
-
-
-
-
-
+/* #region header/sidebar */
 #header {
   position: fixed;
+  top: 0;
   z-index: 5;
   width: 100%
 }
 
 #sidebar {
   position: fixed;
+
 
   .nav-link {
     color: black;
@@ -46,13 +46,12 @@ body {
 
 }
 
-
-
-
+/* #endregion header/sidebar*/
 
 /* #region main */
 
 main {
+
 
   padding-top: 6rem;
 
