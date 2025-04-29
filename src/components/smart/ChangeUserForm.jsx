@@ -1,7 +1,7 @@
 import ChangeUserFormUi from "../dumb/ChangeUserForm.ui"
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../../contexts/TripContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ChangeUserForm() {
 
@@ -11,6 +11,16 @@ export default function ChangeUserForm() {
 
     const [user, setUser] = useState(findUser())
     const [emergency, setEmergency] = useState(findEmergency())
+    console.log(user);
+
+
+    const [userTrips, setUserTrips] = useState(data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale)))
+
+    useEffect(() => {
+        const updatedUserTrips = data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale))
+
+        setUserTrips(updatedUserTrips)
+    }, [data])
 
     //find the user by creating a users flat array and comparing user id
     function findUser() {
@@ -31,8 +41,6 @@ export default function ChangeUserForm() {
         console.log(usersList);
 
         const emergencyFound = usersList.find(user => user.id == id).contattoEmergenza;
-
-        console.log(emergencyFound);
 
         return emergencyFound
     }
@@ -106,6 +114,7 @@ export default function ChangeUserForm() {
                 user={user}
                 emergency={emergency}
                 onSubmit={handleSubmit}
+                userTrips={userTrips}
             />
         </>
     )
