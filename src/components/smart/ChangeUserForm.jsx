@@ -1,7 +1,7 @@
 import ChangeUserFormUi from "../dumb/ChangeUserForm.ui"
 import { useParams } from "react-router-dom"
 import { useTripContext } from "../../contexts/TripContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ChangeUserForm() {
 
@@ -15,6 +15,12 @@ export default function ChangeUserForm() {
 
 
     const [userTrips, setUserTrips] = useState(data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale)))
+
+    useEffect(() => {
+        const updatedUserTrips = data.filter(item => item.partecipanti.some(part => part.codiceFiscale == user.codiceFiscale))
+
+        setUserTrips(updatedUserTrips)
+    }, [data])
 
     //find the user by creating a users flat array and comparing user id
     function findUser() {

@@ -1,4 +1,10 @@
+import { useState } from "react"
+import TripAssignOverlay from "../smart/TripAssignOverlay"
+
 export default function UserTripListUi({ userTrips }) {
+
+    const [display, setDisplay] = useState(false)
+
     return (
         <>
             <div className="container">
@@ -39,8 +45,7 @@ export default function UserTripListUi({ userTrips }) {
                                             <td className="text-center">{trip.partecipanti.length}</td>
                                             <td>
                                                 <div className="button_container d-flex gap-2 justify-content-center bg-transparent">
-                                                    <button onClick={() => navigate(`/${trip.id}/edit-trip`)} className="btn btn-actions btn-warning">Edit</button>
-                                                    <button onClick={() => deleteTrip(trip.id)} className="btn btn-actions btn-danger">Delete</button>
+                                                    <button onClick={() => setDisplay(true)} className="btn btn-actions btn-warning">Change Trip Assingation</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -49,6 +54,11 @@ export default function UserTripListUi({ userTrips }) {
                             }
                         </tbody>
                     </table>
+                    {display == true ? (<>
+                        <TripAssignOverlay
+                            setDisplay={setDisplay}
+                        />
+                    </>) : (<></>)}
                 </div>
             </div>
         </>

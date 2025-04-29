@@ -10,23 +10,32 @@ function TripProvider({ children }) {
 
     function deleteUser(id) {
         console.log('delete');
-        let deletedUser = {};
+        let deletedUser = null;
 
         const updatedData = data.map(item => {
+            const nuoviPartecipanti = item.partecipanti.filter(user => {
+                if (user.id === id) {
+                    deletedUser = user;
+                    return false; // lo escludiamo
+                }
+                return true; // lo manteniamo
+            });
+
             return {
                 ...item,
-                partecipanti: item.partecipanti.filter(user => {
-                    if (user.id !== id) {
-                        return user
-                    } else {
-                        deletedUser = user
-                    }
-                })
-            }
-        })
-        console.log(`user deleted: ${deletedUser} `);
-        setData(updatedData)
+                partecipanti: nuoviPartecipanti
+            };
+        });
+
+        if (deletedUser) {
+            console.log("User deleted:", deletedUser);
+        } else {
+            console.log("User not found.");
+        }
+
+        setData(updatedData);
     }
+
 
 
     function deleteTrip(id) {
