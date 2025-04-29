@@ -22,20 +22,8 @@ export default function EditTrip() {
     const [currentUsers, setCurrentUsers] = useState(data.find(item => item.id == id).partecipanti)
     const [currentCompanions, setCurrentCompanions] = useState(data.find(item => item.id == id).accompagnatori)
 
-    useEffect(() => {
-        setCurrentCompanions(data.find(item => item.id == id).accompagnatori)
-    }, [data])
-
-    //search filter
     const [sortDirection, setSortDirection] = useState("asc");
-
-    const navigate = useNavigate()
-
-    function handleSort() {
-        setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
-    }
-
-    const filteredUsers = currentUsers
+    const [filteredUsers, setFilteredUsers] = useState(currentUsers
         .filter((user) =>
             `${user.nome} ${user.cognome}`
                 .toLowerCase()
@@ -47,7 +35,46 @@ export default function EditTrip() {
             } else {
                 return b.cognome.localeCompare(a.cognome);
             }
-        });
+        }))
+
+
+    useEffect(() => {
+        const updatedTrip = data.find(item => item.id == id);
+        setCurrentTrip(updatedTrip);
+        setCurrentUsers(updatedTrip.partecipanti);
+        setCurrentCompanions(updatedTrip.accompagnatori);
+    }, [data, id]);
+
+    useEffect(() => {
+        setCurrentCompanions(data.find(item => item.id == id).accompagnatori)
+
+        const refreshUsers = currentUsers
+            .filter((user) =>
+                `${user.nome} ${user.cognome}`
+                    .toLowerCase()
+                    .includes(searchQuery.toLowerCase())
+            )
+            .sort((a, b) => {
+                if (sortDirection === "asc") {
+                    return a.cognome.localeCompare(b.cognome);
+                } else {
+                    return b.cognome.localeCompare(a.cognome);
+                }
+            })
+        setFilteredUsers(refreshUsers)
+    }, [data, searchQuery, sortDirection, currentUsers])
+
+    //search filter
+
+
+    const navigate = useNavigate()
+
+    function handleSort() {
+        setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
+    }
+
+    console.log(filteredUsers);
+
 
     //onchange logic
     function handleChangeTrip(key, value) {

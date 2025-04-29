@@ -101,7 +101,9 @@ export default function Trip() {
     }
 
     //create new id
-    const newId = trip.partecipanti.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
+    const usersList = data.flatMap(item => item.partecipanti)
+
+    const newId = usersList.reduce((max, item) => (item.id > max ? item.id : max), 0) + 1;
     newUser.id = newId
 
     //value cehck
