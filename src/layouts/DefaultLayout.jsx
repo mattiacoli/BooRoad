@@ -9,13 +9,16 @@ export default function DefaultLayout() {
       <Header />
 
       <main >
-        <div className="row bg-light">
-          <div className="col-3 col-sm-2 d-flex justify-content-center" style={{ width: '120px', boxShadow: '2px 0px 0 var(--br-primary)' }}>
-            <Sidebar />
-          </div>
+        <div className="container-fluid">
 
-          <div className="col-10">
-            <Outlet />
+          <div className="row bg-light">
+            <div className="col-3 col-sm-2 d-flex justify-content-center d-sm-none " style={{ width: '120px', boxShadow: '2px 0px 0 var(--br-primary)' }}>
+              <Sidebar />
+            </div>
+
+            <div className="col-10">
+              <Outlet />
+            </div>
           </div>
         </div>
       </main>

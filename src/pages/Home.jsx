@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className="container">
         {/* Travel cards */}
-        <div className="row row-cols-1 row-cols-md-3 g-4 pb-5">
+        <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 pb-5">
           {filteredTrips.map((gita) => (
             <TravelCard
               key={gita.id}
