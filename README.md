@@ -1,11 +1,14 @@
 <img src="public/images/logo.png" width='200'>
 
-<img src="public/homepage.png" width='800'>
 
 
 # BooRoad
 
 BooRoad è un'applicazione web per la gestione e la visualizzazione di viaggi. Gli utenti possono esplorare i viaggi disponibili, visualizzare i dettagli di ciascun viaggio e aggiungere nuovi viaggi.
+
+<img src="public/homepage.png" width='800'>
+
+
 
 ## Funzionalità principali
 
